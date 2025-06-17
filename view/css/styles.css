@@ -11,6 +11,9 @@ body {
 .bg-custom-grey {
     background-color: #D9D9D9;
 }
+.justifier{
+text-align: justify;
+}
 
 .bg-custom-button {
     background-color: #A1894B;
@@ -29,25 +32,34 @@ body {
     color: #A1894B;
 }
 
-/* Header and Navigation */
+/* Garde ton CSS existant jusqu'à la section responsive */
+
+/* Header et Navigation */
 header {
     width: 100%;
-    height: 142px;
+    /* Retire la hauteur fixe pour permettre au contenu de se dilater */
+    /* height: 142px; */ /* <-- Supprime ou commente cette ligne */
+    min-height: 80px; /* Optionnel: définir une hauteur minimale si nécessaire */
     background: #D5C596;
-    position: relative; /* Changed to relative for flow, or absolute if exact pixel placement is needed for the entire page */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 0 20px;
 }
 
+/* Conserver les autres styles du header et nav */
+
+/* Styles pour le logo */
 .header-logo {
-    width: 271px;
-    height: 258px;
-    position: absolute; /* Keep absolute for precise placement */
+    /* Si le logo doit rester positionné de manière exacte, il faut gérer son chevauchement
+       avec le menu en mode mobile. Alternativement, le rendre "normal" dans le flux.
+       Pour l'instant, je vais juste m'assurer que son z-index ne pose pas problème avec le dropdown.
+    */
+    position: absolute;
     left: 30px;
     top: -50px;
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: 10; /* Assure-toi que ce z-index est inférieur à celui du menu déroulant (Bootstrap donne souvent un z-index élevé aux menus) */
 }
 
 .navbar-nav .nav-link {
@@ -63,33 +75,14 @@ header {
     text-decoration: underline;
 }
 
-.search-icon {
-    width: 27px;
-    height: 29px;
-    border: 3px black solid;
-    border-radius: 9999px;
-    position: relative;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.search-icon::after {
-    content: '';
-    width: 20.10px;
-    height: 0;
-    position: absolute;
-    top: 24.59px; /* Adjusted from original to fit the circle */
-    left: 20.13px; /* Adjusted from original to fit the circle */
-    transform: rotate(42deg);
-    transform-origin: top left;
-    outline: 3px black solid;
-    outline-offset: -1.50px;
-}
+/* Styles pour la barre de recherche et la loupe supprimés */
+/* .search-icon { ... } */
+/* .search-icon::after { ... } */
 
 .social-icon-header {
     width: 42px;
     height: 42px;
-    transform: rotate(180deg); /* This rotation might be for an arrow or similar, check image */
+    transform: rotate(180deg);
     margin-left: 10px;
 }
 
@@ -121,10 +114,6 @@ h1, h2, h3 {
 
 .image-placeholder {
     background: #D9D9D9;
-    /* The original CSS has rotated lines, which are difficult to replicate exactly with simple border or background.
-       You might need SVG or more complex CSS for those if they are critical.
-       For now, these are simple blocks.
-    */
     border: 1px black solid; /* Added a border to distinguish them as blocks */
 }
 
@@ -186,55 +175,66 @@ footer ul li a {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .section-intro .display-4 {
-        font-size: 24px;
+    /* ... (Tes styles existants) ... */
+
+    .navbar-collapse {
+        /* Assure-toi que le collapse n'a pas de styles qui l'empêchent de prendre la place */
+        /* Par défaut, Bootstrap gère ça avec `flex-basis: auto;` et `height: auto;` quand il est ouvert. */
+        /* Si tu as un `position: absolute;` ou `fixed;` ici, il faut l'enlever. */
+        position: static !important; /* Force la position statique pour qu'il soit dans le flux normal */
+        background-color: #D5C596; /* Ajoute un fond pour le menu déroulant si besoin */
+        padding-bottom: 15px; /* Petit padding pour l'esthétique */
     }
 
-    .section-intro .lead {
-        font-size: 20px;
-    }
-
-    .testimonial-block p {
-        font-size: 18px;
+    .navbar-nav {
+        /* Force la colonne et centre les éléments pour le mobile */
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Important pour que les éléments soient bien centrés */
     }
 
     .navbar-nav .nav-link {
-        font-size: 18px;
-        margin-right: 20px;
+        margin: 10px 0; /* Espacement vertical entre les liens */
+        font-size: 20px; /* Ajuste la taille des liens pour le mobile */
     }
 
-    .rotated-line-90deg {
-        display: none; /* Hide vertical lines on smaller screens */
+    /* Le logo peut être ajusté pour ne pas chevaucher le menu si ce n'est pas déjà le cas */
+    .navbar-brand {
+        margin-right: auto; /* Pousse le logo vers la gauche sur mobile */
     }
 }
 
 @media (max-width: 576px) {
     .header-logo {
-        width: 200px;
-        height: 190px;
-        top: -30px;
-        left: 10px;
+        width: 150px; /* Réduit encore la taille du logo sur très petits écrans */
+        height: auto; /* Garde le ratio */
+        top: -20px; /* Remonte un peu le logo */
+        left: 5px; /* Déplace le logo légèrement sur la gauche */
     }
 
-    .navbar-nav {
-        flex-direction: column;
-        align-items: center;
+    /* Ajuste la taille des boutons et texte d'accueil sur les petits écrans */
+    .d-flex.align-items-center > .navbar-text,
+    .d-flex.align-items-center > .btn {
+        font-size: 0.9em;
+        margin-right: 5px !important;
+        margin-left: 5px !important;
     }
 
-    .navbar-nav .nav-link {
-        margin: 5px 0;
+    .d-flex.align-items-center {
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si l'espace manque */
+        justify-content: center; /* Centre les éléments dans cette section */
+        margin-top: 10px; /* Ajoute un peu d'espace avec le menu du dessus */
+        width: 100%; /* Prend toute la largeur disponible */
     }
 
-    .search-icon, .social-icon-header {
-        display: none; /* Hide icons on very small screens if space is an issue */
+    /* Cache ou ajuste les éléments qui prennent trop de place */
+    .rounded-circle.border,
+    .rotated-line-42deg,
+    .img-fluid.img-rotated-180 {
+        display: none !important; /* Cache les éléments décoratifs pour gagner de la place */
     }
 
-    .btn.bg-custom-button {
-        padding: 10px 20px;
-        font-size: 18px;
-    }
-
-    .table th, .table td {
-        font-size: 0.8em; /* Make table text smaller on mobile */
+    .navbar-toggler {
+        margin-left: auto; /* Pousse le bouton du burger à droite */
     }
 }
