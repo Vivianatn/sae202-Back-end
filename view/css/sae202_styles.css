@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+}
+/*-------Header-------*/
+
+header{
+    background: #000400;
+    color: #E5D6AC
+}
+
+a{
+    text-decoration: none;
+}
