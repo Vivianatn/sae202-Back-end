@@ -1,0 +1,240 @@
+/* General Body and Container Styles */
+body {
+    font-family: 'Inter', sans-serif; /* Default font */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll due to absolute positioning */
+    background: white;
+}
+
+/* Custom Colors */
+.bg-custom-grey {
+    background-color: #D9D9D9;
+}
+
+.bg-custom-button {
+    background-color: #A1894B;
+    color: black;
+    border: none;
+    border-radius: 0; /* Remove Bootstrap's default border-radius if any */
+    font-family: 'Times New Roman', serif; /* Specific font for buttons */
+    font-weight: 400;
+}
+
+.bg-custom-yellow {
+    background-color: #D5C596;
+}
+
+.text-custom-yellow {
+    color: #A1894B;
+}
+
+/* Header and Navigation */
+header {
+    width: 100%;
+    height: 142px;
+    background: #D5C596;
+    position: relative; /* Changed to relative for flow, or absolute if exact pixel placement is needed for the entire page */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.header-logo {
+    width: 271px;
+    height: 258px;
+    position: absolute; /* Keep absolute for precise placement */
+    left: 30px;
+    top: -50px;
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.navbar-nav .nav-link {
+    color: black !important;
+    font-size: 24px;
+    font-family: 'Times New Roman', serif;
+    font-weight: 400;
+    text-decoration: none;
+    margin-right: 40px; /* Adjust spacing between nav items */
+}
+
+.navbar-nav .nav-link.active {
+    text-decoration: underline;
+}
+
+.search-icon {
+    width: 27px;
+    height: 29px;
+    border: 3px black solid;
+    border-radius: 9999px;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.search-icon::after {
+    content: '';
+    width: 20.10px;
+    height: 0;
+    position: absolute;
+    top: 24.59px; /* Adjusted from original to fit the circle */
+    left: 20.13px; /* Adjusted from original to fit the circle */
+    transform: rotate(42deg);
+    transform-origin: top left;
+    outline: 3px black solid;
+    outline-offset: -1.50px;
+}
+
+.social-icon-header {
+    width: 42px;
+    height: 42px;
+    transform: rotate(180deg); /* This rotation might be for an arrow or similar, check image */
+    margin-left: 10px;
+}
+
+/* Main Section Styles */
+main {
+    padding-top: 0; /* Adjust if header is absolute */
+}
+
+.section-border {
+    border: 1px black solid;
+}
+
+/* Typography for titles */
+h1, h2, h3 {
+    font-family: 'Grenze Gotisch', cursive;
+    color: black;
+}
+
+/* Specific Section Styles */
+.section-intro .display-4 {
+    font-size: 32px; /* Adjusted from 96px for better fit */
+}
+
+.section-intro .lead {
+    font-family: 'Grenze Gotisch', cursive;
+    font-size: 32px;
+    line-height: 35px;
+}
+
+.image-placeholder {
+    background: #D9D9D9;
+    /* The original CSS has rotated lines, which are difficult to replicate exactly with simple border or background.
+       You might need SVG or more complex CSS for those if they are critical.
+       For now, these are simple blocks.
+    */
+    border: 1px black solid; /* Added a border to distinguish them as blocks */
+}
+
+/* Testimonial Section */
+.testimonial-block {
+    background: #D9D9D9; /* Example background, adjust as needed */
+    border: 1px solid #ccc; /* Add a border to define the block */
+    padding: 20px;
+    height: 224px; /* Maintain consistent height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-block p {
+    font-size: 24px;
+    font-family: 'Times New Roman', serif;
+    font-weight: 400;
+    text-align: center;
+    line-height: 28px;
+    color: black;
+}
+
+/* Circles and Rotated Lines Section */
+.circle-placeholder {
+    background: #A7A7A7;
+    border: 1px black solid;
+}
+
+.rotated-line-90deg {
+    width: 1px; /* Line thickness */
+    height: 200px; /* Adjust height as needed */
+    background-color: black;
+    transform: rotate(90deg);
+    margin: 0 50px; /* Space between elements */
+}
+
+/* Footer */
+footer {
+    background: #D5C596;
+    color: black;
+}
+
+footer h5 {
+    font-family: 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px; /* Adjust as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-intro .display-4 {
+        font-size: 24px;
+    }
+
+    .section-intro .lead {
+        font-size: 20px;
+    }
+
+    .testimonial-block p {
+        font-size: 18px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 18px;
+        margin-right: 20px;
+    }
+
+    .rotated-line-90deg {
+        display: none; /* Hide vertical lines on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .header-logo {
+        width: 200px;
+        height: 190px;
+        top: -30px;
+        left: 10px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+    }
+
+    .search-icon, .social-icon-header {
+        display: none; /* Hide icons on very small screens if space is an issue */
+    }
+
+    .btn.bg-custom-button {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .table th, .table td {
+        font-size: 0.8em; /* Make table text smaller on mobile */
+    }
+}

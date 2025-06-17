@@ -50,6 +50,57 @@ function getMessageExpediteur(){
     }
 }
 
+function getMessageById(){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->prepare('SELECT * FROM messagerie WHERE mes_id = :id');
+
+        $req->execute(['id' => $_POST['user_id']]);
+    
+        // Récupération des résultats
+        $messagerie = $req->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Return des jeux
+        return $messagerie ;
+    
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
+
+
+
+function getMessageLu(){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->prepare('UPDATE messagerie
+                                    SET mes_lu = TRUE
+                                    WHERE mes_id = :id;');
+
+        $req->execute(['id' => $_POST['user_id']]);
+    
+        // Récupération des résultats
+        $messagerie = $req->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Return des jeux
+        return $messagerie ;
+    
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
 function envoiDestinataire($message, $destinataire){
 
     try {
@@ -73,3 +124,4 @@ function envoiDestinataire($message, $destinataire){
         die("Erreur de connexion à la base de données: " . $e->getMessage());
     }
 }
+

@@ -6,7 +6,7 @@ function index(){
 
 $parties = getUtilisateurs();
   
-$titre="Nos scénarios les plus récents :";
+$titre="Voici tous les comptes:";
 
 require('view/autres_pages/header.php');
 require('view/autres_pages/menu.php');

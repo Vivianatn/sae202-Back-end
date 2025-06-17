@@ -22,6 +22,17 @@ function envoi(){
     require('view/autres_pages/menu.php');
     require('view/envoi_view.php');
     require('view/autres_pages/footer.php');
+}
+
+function message(){
+
+    $messages = getMessageById();
+    getMessageLu();
+    
+    require('view/autres_pages/header.php');
+    require('view/autres_pages/menu.php');
+    require('view/message_view.php');
+    require('view/autres_pages/footer.php');
     }
 
 function reception(){

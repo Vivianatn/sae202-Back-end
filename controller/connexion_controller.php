@@ -39,6 +39,7 @@ function verif_connexion(): void
             $_SESSION['user_nom']=$resultat['user_nom'];
             $_SESSION['user_email']=$resultat['user_email']; 
             $_SESSION['user_prenom']=$resultat['user_prenom']; 
+            $_SESSION['user_id']=$resultat['user_id']; 
             /* $_SESSION['user_nom']=$resultat['user_nom'];    */
             
             //on redirige l'utilisateur vers la page d'accueil
@@ -105,6 +106,7 @@ function validation_inscription()
                 $_SESSION['user_nom']=$resultat['user_nom'];
                 $_SESSION['user_email']=$resultat['user_email']; 
                 $_SESSION['user_prenom']=$resultat['user_prenom'];
+                $_SESSION['user_id']=$resultat['user_id']; 
                 //on redirige l'utilisateur vers la page d'accueil
                 header('Location: /');
                 //echo 'utilisateur créé';
