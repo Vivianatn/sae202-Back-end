@@ -171,7 +171,7 @@
                             echo '</tr>';
                         }
                     } else {
-                        echo '<tr><td colspan="5" class="text-center">Aucun commentaire à vérifier.</td></tr>';
+                        echo '<tr><td colspan="5" class="text-center">Aucun commentaire à gérer.</td></tr>';
                     }
                     ?>
                  </tbody>
@@ -179,6 +179,8 @@
         </div>
         <hr>
         <h1 class="mb-4">Demande des utilisateurs :</h1>
+        <em class="mb-4">Conseil : supprimer un message quand vous y avez répondu ou alors marque le comme "répondu".</em>
+        <br><br>
         <div class="table-responsive mb-5">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
@@ -188,6 +190,7 @@
                         <th class="text-center">Utilisateur</th>
                         <th class="text-center">Suppression du message</th>
                         <th class="text-center">Répondre</th>
+                        <th class="text-center">Etat</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -202,10 +205,15 @@
                             echo '<td>' . htmlspecialchars($demande['user_email']) . '</td>';
                             echo '<td><form class="text-center" action="../accueil/supprimer" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$demande['mesad_id'].'">Supprimer</button></form></td>';
                             echo '<td><form class="text-center" action="../accueil/repondre" method="post"><button class="btn btn-success" type="submit" name="user_email" value="'.$demande['user_email'].'">Répondre</button></form></td>';
+                            if( $demande['mesad_lu'] == 0){
+                                echo '<td class="text-center"><form class="text-center" action="../accueil/lu" method="post"><button type="submit" name="id" value="'.$demande['mesad_id'].'" class="btn btn-danger">Non répondu</button></form></td>';
+                            } else {
+                                echo '<td class="text-center"><button class="btn btn-outline-success">Répondu</button></td>';
+                            }
                             echo '</tr>';
                         }
                     } else {
-                        echo '<tr><td colspan="5" class="text-center">Aucun commentaire à gérer.</td></tr>';
+                        echo '<tr><td colspan="5" class="text-center">Aucun demande à traiter.</td></tr>';
                     }
                     ?>
                  </tbody>

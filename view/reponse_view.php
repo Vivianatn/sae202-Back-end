@@ -14,8 +14,8 @@
 <div class="contact-page-wrapper">
     <div class="contact-container">
         <form action="/accueil/envoyer" method="post">
-            <h1>Répondre</h1>
-            <input name="user_email" value="<?php echo $utilisateur; ?>">Envoyer à : <?php echo $utilisateur; ?></input>
+            <h2>Répondre à <?php echo $utilisateur; ?></h2>
+            <h3><input class="hide" name="user_email" value="<?php echo $utilisateur; ?>"></input></h3>
 
             <label for="subject-input" class="form-label-contact">Objet</label>
             <input type="text" id="subject-input" name="mes_titre" placeholder="" class="form-control-custom contact-input-subject">

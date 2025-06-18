@@ -129,6 +129,27 @@ function commentaireVerifie(){
     }
 }
 
+function getUtilisateursReponse(){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+    
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->query('SELECT * FROM messageadmin WHERE mesad_id = '.$_SESSION['admin_reponse_id'].'');
+    
+        // Récupération des résultats
+        $reponses = $req->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Return des jeux
+        return $reponses ;
+    
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
 function supprimeUtilisateur($id){
 
     try {
@@ -238,6 +259,23 @@ function envoiReponseAdmin($contenu, $titre, $dest){
             'mes_expediteur' => "Administration",
             'mes_titre' => $titre
             ]);
+
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
+function luAdmin($id){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->prepare('UPDATE messageadmin SET mesad_lu = 1 WHERE mesad_id = :id');
+
+        $req->execute(['id' => $id]);
 
     } catch (PDOException $e) {
         // Gestion des erreurs de connexion

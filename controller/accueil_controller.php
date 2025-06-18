@@ -70,11 +70,15 @@ function commentaire(){
 
 function envoyer(){
     if(!empty($_POST['mes_titre']) && !empty($_POST['mes_contenu'])){
-        /* $resultat = verif_utilisateur($_POST['user']); */
-        var_dump($_POST['user_email']);
         envoiReponseAdmin($_POST['mes_contenu'], $_POST['mes_titre'], $_POST['user_email']);
         header('Location: /gestion');
     }else{
         header('Location: /gestion');
     }
+}
+
+function lu(){
+    luAdmin($_POST['id']);
+
+    header("Location: /gestion");
 }
