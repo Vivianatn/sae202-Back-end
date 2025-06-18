@@ -7,7 +7,7 @@ function getUtilisateurs(){
         $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
     
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
-        $req = $db->query('SELECT * FROM utilisateurs');
+        $req = $db->query('SELECT * FROM utilisateurs ORDER BY user_nom');
     
         // Récupération des résultats
         $parties = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -19,8 +19,6 @@ function getUtilisateurs(){
         // Gestion des erreurs de connexion
         die("Erreur de connexion à la base de données: " . $e->getMessage());
     }
-
-
 }
 
 function getProfil(){
@@ -54,7 +52,28 @@ function getCommentaires(){
         $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
 
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
-        $req = $db->query('SELECT * FROM commentaires INNER JOIN utilisateurs ON commentaires.com_utilisateur = utilisateurs.user_id WHERE com_verif = 0');
+        $req = $db->query('SELECT * FROM commentaires INNER JOIN utilisateurs ON commentaires.com_utilisateur = utilisateurs.user_id WHERE com_verif = 0 ORDER BY com_date ASC');
+
+        // Récupération des résultats
+        $commentaires = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        // Return des jeux
+        return $commentaires ;
+
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
+function getCommentairesGestion(){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->query('SELECT * FROM commentaires INNER JOIN utilisateurs ON commentaires.com_utilisateur = utilisateurs.user_id WHERE com_verif = 1 ORDER BY com_date DESC');
 
         // Récupération des résultats
         $commentaires = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -75,7 +94,7 @@ function getMessagesAdmin(){
         $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
 
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
-        $req = $db->query('SELECT * FROM messageadmin INNER JOIN utilisateurs ON messageadmin.mesad_utilisateur = utilisateurs.user_id');
+        $req = $db->query('SELECT * FROM messageadmin INNER JOIN utilisateurs ON messageadmin.mesad_utilisateur = utilisateurs.user_id ORDER BY mesad_id DESC');
 
         // Récupération des résultats
         $messageadmin = $req->fetchAll(PDO::FETCH_ASSOC);

@@ -112,7 +112,7 @@
             </table>
         </div>
         <hr>
-        <h1 class="mb-4">Commentaire à vérifier :</h1>
+        <h1 class="mb-4">Commentaire(s) à vérifier :</h1>
         <div class="table-responsive mb-5">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
@@ -134,6 +134,39 @@
                             echo '<td>' . htmlspecialchars($commentaire['com_contenu']) . '</td>';
                             echo '<td>' . htmlspecialchars($commentaire['com_date']) . '</td>';
                             echo '<td><form class="text-center" action="../accueil/admettre" method="post"><button class="btn btn-outline-primary" type="submit" name="id" value="'.$commentaire['com_id'].'">Admettre</button></form></td>';
+                            echo '<td><form class="text-center" action="../accueil/bannir" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$commentaire['com_id'].'">Supprimer</button></form></td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5" class="text-center">Aucun commentaire à vérifier.</td></tr>';
+                    }
+                    ?>
+                 </tbody>
+            </table>
+        </div>
+        <hr>
+        <h1 class="mb-4">Gestion des commentaires :</h1>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Utilisateur</th>
+                        <th class="text-center">Commentaire</th>
+                        <th class="text-center">Date et Heure</th>
+                        <!-- <th class="text-center">Admission</th> -->
+                        <th class="text-center">Suppression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Assurez-vous que $parties est défini avant de l'itérer&& is_array($commentaires)
+                    if (!empty($commentairesGestion)) {    
+                        foreach ($commentairesGestion as $commentaire) {
+                            echo '<tr>';
+                            echo '<td>' . htmlspecialchars($commentaire['user_email']) . '</td>';
+                            echo '<td>' . htmlspecialchars($commentaire['com_contenu']) . '</td>';
+                            echo '<td>' . htmlspecialchars($commentaire['com_date']) . '</td>';
+                            /* echo '<td><form class="text-center" action="../accueil/admettre" method="post"><button class="btn btn-outline-primary" type="submit" name="id" value="'.$commentaire['com_id'].'">Admettre</button></form></td>'; */
                             echo '<td><form class="text-center" action="../accueil/bannir" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$commentaire['com_id'].'">Supprimer</button></form></td>';
                             echo '</tr>';
                         }
@@ -172,14 +205,12 @@
                             echo '</tr>';
                         }
                     } else {
-                        echo '<tr><td colspan="5" class="text-center">Aucun nouveau message.</td></tr>';
+                        echo '<tr><td colspan="5" class="text-center">Aucun commentaire à gérer.</td></tr>';
                     }
                     ?>
                  </tbody>
             </table>
         </div>
-
-
         </section>
 
 <!--         <hr class="my-5">
