@@ -1,4 +1,3 @@
-/* General Body and Container Styles */
 body {
     font-family: 'Inter', sans-serif; /* Default font */
     margin: 0;
@@ -37,9 +36,7 @@ text-align: justify;
 /* Header et Navigation */
 header {
     width: 100%;
-    /* Retire la hauteur fixe pour permettre au contenu de se dilater */
-    /* height: 142px; */ /* <-- Supprime ou commente cette ligne */
-    min-height: 80px; /* Optionnel: définir une hauteur minimale si nécessaire */
+    min-height: 80px; /* Optional: set a minimum height if needed */
     background: #D5C596;
     position: relative;
     display: flex;
@@ -52,14 +49,10 @@ header {
 
 /* Styles pour le logo */
 .header-logo {
-    /* Si le logo doit rester positionné de manière exacte, il faut gérer son chevauchement
-       avec le menu en mode mobile. Alternativement, le rendre "normal" dans le flux.
-       Pour l'instant, je vais juste m'assurer que son z-index ne pose pas problème avec le dropdown.
-    */
     position: absolute;
     left: 30px;
     top: -50px;
-    z-index: 10; /* Assure-toi que ce z-index est inférieur à celui du menu déroulant (Bootstrap donne souvent un z-index élevé aux menus) */
+    z-index: 10;
 }
 
 .navbar-nav .nav-link {
@@ -74,10 +67,6 @@ header {
 .navbar-nav .nav-link.active {
     text-decoration: underline;
 }
-
-/* Styles pour la barre de recherche et la loupe supprimés */
-/* .search-icon { ... } */
-/* .search-icon::after { ... } */
 
 .social-icon-header {
     width: 42px;
@@ -150,6 +139,72 @@ h1, h2, h3 {
     transform: rotate(90deg);
     margin: 0 50px; /* Space between elements */
 }
+/* --- HERO BANNER FIXES --- */
+.hero-banner-section {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 35%; /* Adjust this percentage to control the height based on width. Example: 16:9 aspect ratio for image */
+    height: 0; /* Important for padding-bottom trick to work */
+    min-height: 400px; /* Ensure a minimum height so it doesn't collapse on very narrow screens */
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.hero-banner-section img.background-image { /* New class for the background image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Background image at the bottom layer */
+}
+
+.fanion-container {
+    position: absolute;
+    top: 65%; /* Move the whole fanion lower */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Fanion image above the background image */
+    width: 80%; /* Adjust as needed */
+    max-width: 1134px; /* Maintain max width */
+    height: auto; /* Allow height to adjust */
+    display: block; /* Ensures internal absolute positioning works */
+    overflow: hidden; /* Helps contain children (though we want text *in* fanion, not hidden) */
+}
+
+.fanion-container img {
+    width: 100%; /* Image will scale with its parent .fanion-container */
+    height: auto;
+    display: block;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the whole image is visible */
+}
+
+.fanion-content {
+    position: absolute;
+    top: 50%; /* Revert to center for better visual alignment with the *center* of the image's text area */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers both horizontally and vertically */
+    text-align: center;
+    z-index: 3; /* Text above the fanion image */
+    color: black;
+    /* Adjusted width and max-width based on fanion.png proportions */
+    width: 80%; /* Adjusted from 90% to give more room, scales with fanion-container */
+    max-width: 600px; /* Reduced from 700px. This max-width targets the flat part of your fanion image */
+    padding: 0 2%; /* Reduced padding slightly as width is more controlled now */
+    box-sizing: border-box;
+}
+
+.fanion-content h1 {
+    font-family: 'Grenze Gotisch', cursive;
+    color: black;
+    /* --- UPDATED CLAMP VALUES FOR H1 FOR BETTER FIT --- */
+    font-size: clamp(1.2rem, 3.5vw, 3rem); /* Min 1.2rem (good for small mobile), grows up to 3.5vw, max 3rem (good for desktop) */
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
 
 /* Footer */
 footer {
@@ -173,46 +228,121 @@ footer ul li a {
     font-size: 18px; /* Adjust as needed */
 }
 
+    .inscription-page {
+        background-color: white; /* Match body background */
+    }
+
+    .form-control-custom {
+        background-color: #E5D6AC; /* Background color from Figma */
+        border: 3px solid #A1894B; /* Border color from Figma */
+        border-radius: 0; /* Square corners */
+        height: 68px; /* Height from Figma */
+        font-family: 'Inter', sans-serif;
+        font-size: 1.25rem; /* Larger font for input */
+        color: black;
+        padding: 0.375rem 0.75rem; /* Default Bootstrap padding for inputs */
+    }
+
+    .form-control-custom::placeholder {
+        color: #6c757d; /* Adjust placeholder color if needed */
+        opacity: 0.7;
+    }
+
+    /* Override default focus styles if needed */
+    .form-control-custom:focus {
+        border-color: #8c733f; /* Darker shade of your border color on focus */
+        box-shadow: 0 0 0 0.25rem rgba(161, 137, 75, 0.25); /* Subtle shadow on focus */
+        background-color: #E5D6AC; /* Keep background on focus */
+    }
+
+    /* Specific height for textarea */
+    textarea.form-control-custom {
+        height: auto; /* Allow textarea to size based on rows */
+        min-height: 200px; /* Adjust as needed */
+    }
+
+    .bg-custom-button {
+        background-color: #A1894B;
+        color: black;
+        border: 3px solid #A1894B; /* Figma shows a border on the button too */
+        border-radius: 0;
+        font-family: 'Times New Roman', serif;
+        font-weight: 400;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .bg-custom-button:hover {
+        background-color: #8c733f; /* Slightly darker on hover */
+        color: white; /* Optional: change text color on hover */
+    }
+    @media (max-width: 1200px) { /* Adjust fanion size for smaller desktops */
+    /* Remove fixed width for img, let parent width handle it */
+    /* .fanion-container img { width: 900px; height: auto; } */
+    /* Let the max-width of the container handle the scaling */
+    .fanion-container {
+        max-width: 900px; /* Limit max size on larger tablets/small desktops */
+    }
+        .fanion-content h1 { font-size: 18px; }
+
+}
+
+  @media (max-width: 992px) { /* Adjust fanion size for tablets */
+    /* Remove fixed width for img */
+    /* .fanion-container img { width: 700px; } */
+    .fanion-container {
+        max-width: 700px; /* Limit max size for tablets */
+    }
+    /* Font sizes continue to scale with clamp */
+    /* .fanion-content h1 { font-size: 2rem; } */
+}
+    .fanion-content h1 { font-size: 15px; }
 /* Responsive adjustments */
 @media (max-width: 768px) {
     /* ... (Tes styles existants) ... */
 
     .navbar-collapse {
-        /* Assure-toi que le collapse n'a pas de styles qui l'empêchent de prendre la place */
-        /* Par défaut, Bootstrap gère ça avec `flex-basis: auto;` et `height: auto;` quand il est ouvert. */
-        /* Si tu as un `position: absolute;` ou `fixed;` ici, il faut l'enlever. */
-        position: static !important; /* Force la position statique pour qu'il soit dans le flux normal */
-        background-color: #D5C596; /* Ajoute un fond pour le menu déroulant si besoin */
-        padding-bottom: 15px; /* Petit padding pour l'esthétique */
+        position: static !important;
+        background-color: #D5C596;
+        padding-bottom: 15px;
     }
 
     .navbar-nav {
-        /* Force la colonne et centre les éléments pour le mobile */
         flex-direction: column;
         align-items: center;
-        width: 100%; /* Important pour que les éléments soient bien centrés */
+        width: 100%;
     }
 
     .navbar-nav .nav-link {
-        margin: 10px 0; /* Espacement vertical entre les liens */
-        font-size: 20px; /* Ajuste la taille des liens pour le mobile */
+        margin: 10px 0;
+        font-size: 20px;
     }
 
-    /* Le logo peut être ajusté pour ne pas chevaucher le menu si ce n'est pas déjà le cas */
     .navbar-brand {
-        margin-right: auto; /* Pousse le logo vers la gauche sur mobile */
+        margin-right: auto;
     }
+
+    .hero-banner-section {
+        height: auto; /* Let the padding-bottom determine height primarily */
+        min-height: 300px; /* Smaller min-height for smaller screens */
+    }
+    .fanion-container {
+        width: 90%; /* Allow it to take up more width on smaller screens, but scale */
+        max-width: 500px; /* Limit max size for smaller tablets/large phones */
+        top: 60%; /* Maybe adjust top position slightly for smaller screens */
+    }
+    /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
+    .fanion-content h1 { font-size: 12px; }
 }
+
 
 @media (max-width: 576px) {
     .header-logo {
-        width: 150px; /* Réduit encore la taille du logo sur très petits écrans */
-        height: auto; /* Garde le ratio */
-        top: -20px; /* Remonte un peu le logo */
-        left: 5px; /* Déplace le logo légèrement sur la gauche */
+        width: 150px;
+        height: auto;
+        top: -20px;
+        left: 5px;
     }
 
-    /* Ajuste la taille des boutons et texte d'accueil sur les petits écrans */
     .d-flex.align-items-center > .navbar-text,
     .d-flex.align-items-center > .btn {
         font-size: 0.9em;
@@ -221,20 +351,31 @@ footer ul li a {
     }
 
     .d-flex.align-items-center {
-        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si l'espace manque */
-        justify-content: center; /* Centre les éléments dans cette section */
-        margin-top: 10px; /* Ajoute un peu d'espace avec le menu du dessus */
-        width: 100%; /* Prend toute la largeur disponible */
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+        width: 100%;
     }
 
-    /* Cache ou ajuste les éléments qui prennent trop de place */
     .rounded-circle.border,
     .rotated-line-42deg,
     .img-fluid.img-rotated-180 {
-        display: none !important; /* Cache les éléments décoratifs pour gagner de la place */
+        display: none !important;
     }
 
     .navbar-toggler {
-        margin-left: auto; /* Pousse le bouton du burger à droite */
+        margin-left: auto;
     }
+    .hero-banner-section {
+        /* You had height: 400px; here. Consider if padding-bottom is sufficient or if you want a fixed height on smallest screens */
+        padding-bottom: 50%; /* Make it taller relative to width on mobile if needed */
+        min-height: 250px;
+    }
+    .fanion-container {
+        width: 95%; /* Even wider on smallest screens to maximize space, but still scales */
+        max-width: 350px; /* Limit max size for phones */
+        top: 60%; /* Adjust top if needed */
+    }
+    /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
+    .fanion-content h1 { font-size: 9px; }
 }

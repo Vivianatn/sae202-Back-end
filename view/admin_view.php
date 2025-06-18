@@ -1,25 +1,36 @@
 <main>
-    <section class="hero-banner-section">
-        <img src="view/img/banniere3.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="background-image">
-
-        <div class="fanion-container">
-            <img src="view/img/fanion1.png" alt="Fanion décoratif">
-        </div>
-                    <div class="row justify-content-center">
-        <div class="col-auto">
-          <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l'enquête</button>
-        </div>
-      </div>
-    </section>
     <section class="container-fluid bg-custom-grey py-5 section-border">
       <div class="row justify-content-center text-center">
         <div class="col-12">
-          <h1>Plongez au cœur du Second Empire, enquêtez dans le salon <br/>d'un comte assassiné, fouillez les indices, confrontez <br/>les témoignages, et démasquez le meurtrier…</h1>
+          <h1 class="display-4 fw-normal text-dark mb-4">Bienvenue dans l'administration    </h1>
+          <p class="lead fw-normal text-dark">Ici, vous pouvez administrer tout le site</p>
         </div>
       </div>
-    </section>
+     <!--  <div class="row justify-content-around py-4">
+        <div class="col-md-3 mb-4">
+          <div class="image-placeholder p-5 text-center" style="height: 224px;">
+            <p>Image Placeholder 1</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="image-placeholder p-5 text-center" style="height: 224px;">
+            <p>Image Placeholder 2</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="image-placeholder p-5 text-center" style="height: 224px;">
+            <p>Image Placeholder 3</p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l’enquête</button>
+        </div>
+      </div> -->
+</section>  
 
-    <section class="container-fluid py-5">
+    <!-- <section class="container-fluid py-5">
       <div class="row text-center mb-5">
         <div class="col-12">
           <h2 class="fw-normal text-dark">Notre prochaine session se déroulera dans...</h2>
@@ -65,12 +76,77 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="container py-5">
+        <h1 class="mb-4"><?php echo $titre; ?></h1>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Mot de passe</th>
+                        <th>Suppression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Assurez-vous que $parties est défini avant de l'itérer&& is_array($parties)
+                    if (!empty($parties)) {    
+                        foreach ($parties as $partie) {
+                            echo '<tr>';
+                            echo '<td>' . htmlspecialchars($partie['user_nom']) . '</td>';
+                            echo '<td>' . htmlspecialchars($partie['user_prenom']) . '</td>';
+                            echo '<td>' . htmlspecialchars($partie['user_email']) . '</td>';
+                            echo '<td>' . htmlspecialchars($partie['user_mdp']) . '</td>';
+                            echo '<td><form action="../accueil/suppression" method="post"><button type="submit" name="id" value="'.$partie['user_id'].'">Supprimer</button></form></td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5" class="text-center">Aucune compte n\'a été créé.</td></tr>';
+                    }
+                    ?>
+                 </tbody>
+            </table>
+        </div>
+<hr>
+        <section class="container py-5">
+        <h1 class="mb-4">Commentaire à vérifier :</h1>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Utilisateur</th>
+                        <th>Commentaire</th>
+                        <th>Date et Heure</th>
+                        <th>Admission</th>
+                        <th>Suppression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Assurez-vous que $parties est défini avant de l'itérer&& is_array($commentaires)
+                    if (!empty($commentaires)) {    
+                        foreach ($commentaires as $commentaire) {
+                            echo '<tr>';
+                            echo '<td>' . htmlspecialchars($commentaire['user_email']) . '</td>';
+                            echo '<td>' . htmlspecialchars($commentaire['com_contenu']) . '</td>';
+                            echo '<td>' . htmlspecialchars($commentaire['com_date']) . '</td>';
+                            echo '<td><form action="../accueil/admettre" method="post"><button type="submit" name="id" value="'.$commentaire['com_id'].'">Admettre</button></form></td>';
+                            echo '<td><form action="../accueil/bannir" method="post"><button type="submit" name="id" value="'.$commentaire['com_id'].'">Supprimer</button></form></td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5" class="text-center">Aucun commentaire à vérifier.</td></tr>';
+                    }
+                    ?>
+                 </tbody>
+            </table>
         </div>
 
-        <hr class="my-5">
+<!--         <hr class="my-5">
 
         <h1 class="mb-4">Notre événement</h1>
         <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae unde ipsum placeat deserunt distinctio voluptas aut accusantium suscipit consequuntur dicta! Eligendi soluta delectus sed ad ullam! Minima facilis laborum inventore? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est eaque officiis molestiae facilis doloremque ratione, amet unde veritatis ducimus quasi quis voluptatibus et aliquid maiores, voluptas harum, minima obcaecati iste!</p>
@@ -78,47 +154,10 @@
 
         <hr class="my-5">
 
-        <div class="container py-4">
-        <br><br>
-        <div class="row"></div>
         <h1 class="mb-4">Voici les commentaires :</h1>
-        <?php
-          if(!empty($commentaires_verif)){
-            foreach ($commentaires_verif as $commentaire) {
-              
-              echo '<div class="col-12 mb-3">'; // Chaque message dans une colonne
-              echo '<div class="card bg-custom-grey border-dark">'; // Carte pour le message
-              echo '<div class="card-body">';
-              echo '<h1 class="card-text mb-1">' . htmlspecialchars($commentaire['user_prenom']) .' '. htmlspecialchars($commentaire['user_nom']) .' :</h1>';
-              echo '<h5 class="card-text mb-1">' . htmlspecialchars($commentaire['user_email']) .' </h5>';
-              echo '<h4 class="card-title mb-2">' . htmlspecialchars($commentaire['com_contenu']) . '</h4>';
-              // Bouton "Voir le message"
-              /* echo '<button type="submit" name="id" value="' . htmlspecialchars($commentaire['mes_id']) . '" class="btn bg-custom-button px-4 py-2">Voir le message</button>'; */
-              echo '</div>'; // Fin card-body
-              echo '</div>'; // Fin card
-              echo '</div>'; // Fin col
-            }
-          }else{
-            echo '<div class="alert alert-info" role="alert">Aucun commentaire pour l\'instant.</div>';
-          }
-          
-        ?>
+        <div class="alert alert-info" role="alert">
+            Aucun commentaire pour l'instant.
         </div>
-        </div>
-
-        <?php
-        if(isset($_SESSION['user_email'])) {
-            echo '<h1>Laissez nous un commentaire :</h1>';
-            echo '<form action="/accueil/commentaire" method="post">';
-            echo '<br>';
-            echo '<div class="col-12 col-md-6">
-                    <input type="text" class="form-control form-control-custom" id="com_contenu" name="com_contenu" placeholder="Commentaire..." value="" required>
-                  </div>';
-            echo '<br><br>';
-            echo '<button class="btn btn-success px-4 py-2">Envoyer</button>';
-            echo '</form>';
-        }
-        ?>
     </section>
 
     <section class="container py-5">
@@ -141,8 +180,8 @@
             </div>
             <div class="col-md-3 d-flex flex-column align-items-center mb-4">
                 <img src="https://placehold.co/480x456" alt="Placeholder" class="img-fluid mb-3" style="width: 300px; height: auto;">
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Une question ? Besoin d'aide ?</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">Besoin d'aide ?</button>
+                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Une question ? Besoin d’aide ?</h3>
+                <button class="btn bg-custom-button px-4 py-2 mt-auto">Besoin d’aide ?</button>
             </div>
         </div>
     </section>
@@ -151,7 +190,7 @@
         <div class="row justify-content-center text-center mb-4">
             <div class="col-12">
                 <h2 class="display-4 fw-normal text-dark mb-4">Saurez-vous percer le mystère ?</h2>
-                <p class="fs-4 text-dark" style="font-family: 'Inter', sans-serif;">Démarrer l'enquête</p>
+                <p class="fs-4 text-dark" style="font-family: 'Inter', sans-serif;">Démarrer l’enquête</p>
                 <div class="row justify-content-center align-items-center my-4">
                     <div class="col-md-4">
                         <img src="https://placehold.co/327x399" alt="Placeholder" class="img-fluid mb-3" style="width: 327px; height: 399px;">
@@ -163,8 +202,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-around text-center my-5">
+        </div> -->
+<!--         <div class="row justify-content-around text-center my-5">
             <div class="col-md-3 mb-4">
                 <img src="https://placehold.co/438x536" alt="Placeholder" class="img-fluid">
             </div>
@@ -175,6 +214,6 @@
                 <img src="https://placehold.co/367x449" alt="Placeholder" class="img-fluid">
             </div>
         </div>
-    </section>
+    </section> -->
 
   </main>

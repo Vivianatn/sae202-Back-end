@@ -27,6 +27,9 @@
                     echo '<li class="nav-item"><a class="nav-link text-dark fs-5" href="/contact">Contact</a></li>';
                 }
                 ?>
+                <li class="nav-item">
+                    <a class="nav-link text-dark fs-5" href="/gestion">Admin</a>
+                </li>
             </ul>
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center me-3">

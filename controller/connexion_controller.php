@@ -108,7 +108,7 @@ function validation_inscription()
                 $_SESSION['user_prenom']=$resultat['user_prenom'];
                 $_SESSION['user_id']=$resultat['user_id']; 
                 //on redirige l'utilisateur vers la page d'accueil
-                header('Location: /');
+                header('Location: /connexion');
                 //echo 'utilisateur créé';
             }
             else
