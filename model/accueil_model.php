@@ -68,6 +68,27 @@ function getCommentaires(){
     }
 }
 
+function getMessagesAdmin(){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->query('SELECT * FROM messageadmin INNER JOIN utilisateurs ON messageadmin.mesad_utilisateur = utilisateurs.user_id');
+
+        // Récupération des résultats
+        $messageadmin = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        // Return des jeux
+        return $messageadmin ;
+
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
 function commentaireVerifie(){
 
     try {
@@ -97,6 +118,25 @@ function supprimeUtilisateur($id){
 
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
         $req = $db->prepare('DELETE FROM `utilisateurs` WHERE user_id = :id');
+        $req->execute([
+            'id' => $id
+        ]);
+
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
+
+function supprimeMessage($id){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->prepare('DELETE FROM messageadmin WHERE mesad_id = :id');
         $req->execute([
             'id' => $id
         ]);
@@ -156,6 +196,29 @@ function envoiCommentaire($contenu){
             'utilisateur' => $_SESSION['user_id'],
             'contenu' => $contenu
         ]);
+
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
+function envoiReponseAdmin($contenu, $titre, $dest){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->prepare('INSERT INTO messagerie(mes_contenu, mes_destinataire, mes_expediteur, mes_titre) 
+        VALUES (:mes_contenu, :mes_destinataire, :mes_expediteur, :mes_titre)');
+
+        $req->execute([
+            'mes_contenu' => $contenu,
+            'mes_destinataire' => $dest,
+            'mes_expediteur' => "Administration",
+            'mes_titre' => $titre
+            ]);
 
     } catch (PDOException $e) {
         // Gestion des erreurs de connexion

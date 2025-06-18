@@ -1,5 +1,5 @@
-    <section class="hero-banner-section">
-        <img src="view/img/banniere4.webp" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="background-image">
+<!-- <section class="hero-banner-section">
+        <img src="view/img/banniere3.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="background-image">
 
         <div class="fanion-container">
             <img src="view/img/fanion14.png" alt="Fanion décoratif">
@@ -9,18 +9,19 @@
           <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l'enquête</button>
         </div>
       </div>
-    </section>
+    </section> -->
     <section class="fond_contact">
 <div class="contact-page-wrapper">
     <div class="contact-container">
-        <form action="/contact/contactadmin" method="post">
-
+        <form action="/accueil/envoyer" method="post">
+            <h1>Répondre</h1>
+            <input name="user_email" value="<?php echo $utilisateur; ?>">Envoyer à : <?php echo $utilisateur; ?></input>
 
             <label for="subject-input" class="form-label-contact">Objet</label>
-            <input type="text" id="subject-input" name="mesad_titre" placeholder="" class="form-control-custom contact-input-subject">
+            <input type="text" id="subject-input" name="mes_titre" placeholder="" class="form-control-custom contact-input-subject">
 
             <label for="message-input" class="form-label-contact">Message...</label>
-            <textarea id="message-input" name="mesad_contenu" placeholder="" class="form-control-custom contact-textarea-message"></textarea>
+            <textarea id="message-input" name="mes_contenu" placeholder="" class="form-control-custom contact-textarea-message"></textarea>
 
             <button type="submit" class="bg-custom-button contact-submit-button">Envoyer</button>
         </form>

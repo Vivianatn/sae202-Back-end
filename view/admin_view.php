@@ -84,11 +84,11 @@
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
-                        <th>Mot de passe</th>
-                        <th>Suppression</th>
+                        <th class="text-center">Nom</th>
+                        <th class="text-center">Prénom</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Mot de passe</th>
+                        <th class="text-center">Suppression</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -101,7 +101,7 @@
                             echo '<td>' . htmlspecialchars($partie['user_prenom']) . '</td>';
                             echo '<td>' . htmlspecialchars($partie['user_email']) . '</td>';
                             echo '<td>' . htmlspecialchars($partie['user_mdp']) . '</td>';
-                            echo '<td><form action="../accueil/suppression" method="post"><button type="submit" name="id" value="'.$partie['user_id'].'">Supprimer</button></form></td>';
+                            echo '<td><form class="text-center" action="../accueil/suppression" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$partie['user_id'].'">Supprimer</button></form></td>';
                             echo '</tr>';
                         }
                     } else {
@@ -111,18 +111,17 @@
                  </tbody>
             </table>
         </div>
-<hr>
-        <section class="container py-5">
+        <hr>
         <h1 class="mb-4">Commentaire à vérifier :</h1>
         <div class="table-responsive mb-5">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th>Utilisateur</th>
-                        <th>Commentaire</th>
-                        <th>Date et Heure</th>
-                        <th>Admission</th>
-                        <th>Suppression</th>
+                        <th class="text-center">Utilisateur</th>
+                        <th class="text-center">Commentaire</th>
+                        <th class="text-center">Date et Heure</th>
+                        <th class="text-center">Admission</th>
+                        <th class="text-center">Suppression</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -134,8 +133,8 @@
                             echo '<td>' . htmlspecialchars($commentaire['user_email']) . '</td>';
                             echo '<td>' . htmlspecialchars($commentaire['com_contenu']) . '</td>';
                             echo '<td>' . htmlspecialchars($commentaire['com_date']) . '</td>';
-                            echo '<td><form action="../accueil/admettre" method="post"><button type="submit" name="id" value="'.$commentaire['com_id'].'">Admettre</button></form></td>';
-                            echo '<td><form action="../accueil/bannir" method="post"><button type="submit" name="id" value="'.$commentaire['com_id'].'">Supprimer</button></form></td>';
+                            echo '<td><form class="text-center" action="../accueil/admettre" method="post"><button class="btn btn-outline-primary" type="submit" name="id" value="'.$commentaire['com_id'].'">Admettre</button></form></td>';
+                            echo '<td><form class="text-center" action="../accueil/bannir" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$commentaire['com_id'].'">Supprimer</button></form></td>';
                             echo '</tr>';
                         }
                     } else {
@@ -145,6 +144,43 @@
                  </tbody>
             </table>
         </div>
+        <hr>
+        <h1 class="mb-4">Demande des utilisateurs :</h1>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Titre</th>
+                        <th class="text-center">Message</th>
+                        <th class="text-center">Utilisateur</th>
+                        <th class="text-center">Suppression du message</th>
+                        <th class="text-center">Répondre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Assurez-vous que $parties est défini avant de l'itérer&& is_array($commentaires)
+                    /* var_dump($demandes); */
+                    if (!empty($demandes)) {    
+                        foreach ($demandes as $demande) {
+                            echo '<tr>';
+                            echo '<td>' . htmlspecialchars($demande['mesad_titre']) . '</td>';
+                            echo '<td>' . htmlspecialchars($demande['mesad_contenu']) . '</td>';
+                            echo '<td>' . htmlspecialchars($demande['user_email']) . '</td>';
+                            echo '<td><form class="text-center" action="../accueil/supprimer" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$demande['mesad_id'].'">Supprimer</button></form></td>';
+                            echo '<td><form class="text-center" action="../accueil/repondre" method="post"><button class="btn btn-success" type="submit" name="user_email" value="'.$demande['user_email'].'">Répondre</button></form></td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5" class="text-center">Aucun nouveau message.</td></tr>';
+                    }
+                    ?>
+                 </tbody>
+            </table>
+        </div>
+
+
+        </section>
 
 <!--         <hr class="my-5">
 

@@ -34,7 +34,7 @@ function getMessageDestinataire(){
         $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
 
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
-        $req = $db->prepare('SELECT * FROM messagerie WHERE mes_destinataire = :email ORDER BY mes_id');
+        $req = $db->prepare('SELECT * FROM messagerie WHERE mes_destinataire = :email ORDER BY mes_id DESC');
 
         $req->execute(['email' => $_SESSION['user_email']]);
     
@@ -57,7 +57,7 @@ function getMessageExpediteur(){
         $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
 
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
-        $req = $db->prepare('SELECT * FROM messagerie WHERE mes_expediteur = :email ORDER BY mes_id');
+        $req = $db->prepare('SELECT * FROM messagerie WHERE mes_expediteur = :email ORDER BY mes_id DESC');
 
         $req->execute(['email' => $_SESSION['user_email']]);
     

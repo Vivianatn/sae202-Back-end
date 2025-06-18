@@ -89,8 +89,8 @@
               echo '<div class="col-12 mb-3">'; // Chaque message dans une colonne
               echo '<div class="card bg-custom-grey border-dark">'; // Carte pour le message
               echo '<div class="card-body">';
-              echo '<h1 class="card-text mb-1">' . htmlspecialchars($commentaire['user_prenom']) .' '. htmlspecialchars($commentaire['user_nom']) .' :</h1>';
-              echo '<h5 class="card-text mb-1">' . htmlspecialchars($commentaire['user_email']) .' </h5>';
+              echo '<h1 class="card-text mb-1">' . htmlspecialchars($commentaire['user_prenom']) .' '. htmlspecialchars($commentaire['user_nom']) .'</h1><em>le '.htmlspecialchars(substr($commentaire['com_date'], 0, 10)).' à '.htmlspecialchars(substr($commentaire['com_date'], 11, 5)).'</em><br>';
+              echo '<em class="card-text mb-1">Adresse : ' . htmlspecialchars($commentaire['user_email']) .' </em><br><br>';
               echo '<h4 class="card-title mb-2">' . htmlspecialchars($commentaire['com_contenu']) . '</h4>';
               // Bouton "Voir le message"
               /* echo '<button type="submit" name="id" value="' . htmlspecialchars($commentaire['mes_id']) . '" class="btn bg-custom-button px-4 py-2">Voir le message</button>'; */

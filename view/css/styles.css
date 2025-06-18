@@ -143,19 +143,21 @@ h1, h2, h3 {
 .hero-banner-section {
     position: relative;
     overflow: hidden;
-    padding-bottom: 35%; /* Adjust this percentage to control the height based on width. Example: 16:9 aspect ratio for image */
-    height: 0; /* Important for padding-bottom trick to work */
-    min-height: 400px; /* Ensure a minimum height so it doesn't collapse on very narrow screens */
-    display: flex; /* Use flexbox to center content vertically */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
+    padding-bottom: 35%;
+    height: 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* --- NOUVEAU / MODIFIÉ --- */
+    z-index: 2; /* Assure que cette section est au-dessus de .fond_contact (qui aura un z-index implicite de 0 ou auto) */
 }
 
 .hero-banner-section img.background-image { /* New class for the background image */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     object-fit: cover;
     z-index: 1; /* Background image at the bottom layer */
@@ -163,16 +165,18 @@ h1, h2, h3 {
 
 .fanion-container {
     position: absolute;
-    top: 65%; /* Move the whole fanion lower */
+    top: 90%; /* Garde ta nouvelle position pour descendre le fanion */
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Fanion image above the background image */
-    width: 80%; /* Adjust as needed */
-    max-width: 1134px; /* Maintain max width */
-    height: auto; /* Allow height to adjust */
-    display: block; /* Ensures internal absolute positioning works */
-    overflow: hidden; /* Helps contain children (though we want text *in* fanion, not hidden) */
+    /* --- MODIFIÉ --- */
+    z-index: 3; /* Le fanion doit être au-dessus de son background, mais le z-index principal est sur la section parent */
+    width: 80%;
+    max-width: 1134px;
+    height: auto;
+    display: block;
+    overflow: hidden;
 }
+
 
 .fanion-container img {
     width: 100%; /* Image will scale with its parent .fanion-container */
@@ -275,6 +279,179 @@ footer ul li a {
         background-color: #8c733f; /* Slightly darker on hover */
         color: white; /* Optional: change text color on hover */
     }
+
+/* --- Styles pour la page Contact --- */
+.contact-page-wrapper {
+    position: relative; /* Conteneur pour les images de fond */
+    min-height: 100vh; /* S'assure que le wrapper prend au moins toute la hauteur de la vue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Cache le débordement des images */
+}
+
+.contact-container {
+    position: relative; /* Pour que le z-index fonctionne */
+    z-index: 10; /* Assure que le formulaire est au-dessus des images */
+    max-width: 868px; /* Correspond à la largeur des blocs Figma */
+    width: 90%; /* Responsive width */
+    margin: 60px auto; /* Centre le conteneur et ajoute de l'espace */
+    padding: 40px; /* Augmenté pour un meilleur espacement interne */
+    background-color: #D9D9D9; /* Ton gris clair */
+    border: 1px solid black;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centre le contenu à l'intérieur */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+}
+
+.contact-container h1 {
+    font-family: 'Grenze Gotisch', cursive;
+    color: black;
+    margin-bottom: 40px;
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Taille de police responsive pour le H1 */
+    line-height: 1.2;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column; /* Les éléments du formulaire s'empilent verticalement */
+    gap: 25px; /* Espace entre les champs du formulaire */
+    align-items: center; /* Centre les éléments du formulaire */
+}
+
+/* Styles pour les labels qui simulent les textes de Figma */
+.form-label-contact {
+    display: block; /* Chaque label sur une nouvelle ligne */
+    align-self: flex-start; /* Aligner les labels à gauche */
+    width: 100%; /* Prend toute la largeur disponible pour l'alignement */
+    text-align: left; /* Texte du label aligné à gauche */
+    color: black;
+    font-size: 24px; /* Correspond à la taille de Figma */
+    font-family: 'Inter', sans-serif; /* Police de Figma */
+    font-weight: 400;
+    margin-bottom: -15px; /* Rapproche le label de l'input */
+    margin-left: 5px; /* Petite indentation pour le label */
+}
+
+.contact-container input[type="text"],
+.contact-container input[type="email"], /* Ajouté pour l'email */
+.contact-container textarea {
+    width: 100%; /* Les champs prennent toute la largeur disponible dans le conteneur */
+    max-width: 868px; /* Aligné sur la largeur des blocs Figma */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+}
+
+/* Styles spécifiques pour les inputs et textarea pour correspondre à Figma */
+.form-control-custom { /* Réutilisation de ta classe existante */
+    background-color: #E5D6AC; /* Background color from Figma */
+    border: 3px solid #A1894B; /* Border color from Figma */
+    border-radius: 0; /* Square corners */
+    height: 78px; /* Hauteur des inputs de Figma */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem; /* Larger font for input */
+    color: black;
+    padding: 0.375rem 0.75rem; /* Default Bootstrap padding for inputs */
+}
+
+textarea.form-control-custom {
+    height: 310px; /* Hauteur du textarea de Figma */
+    min-height: 200px; /* Pour la responsivité */
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+
+.contact-submit-button { /* Nouvelle classe pour le bouton d'envoi */
+    width: 338px; /* Largeur du bouton de Figma */
+    height: 78px; /* Hauteur du bouton de Figma */
+    padding: 0; /* Retire le padding par défaut car la hauteur est fixe */
+    font-size: 24px; /* Taille de police de Figma */
+    font-family: 'Times New Roman', serif; /* Police de Figma */
+    font-weight: 400;
+    line-height: 78px; /* Centre le texte verticalement */
+    display: flex; /* Utilise flexbox pour centrer le texte */
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Styles pour les images décoratives de Figma --- */
+.contact-decor-images img {
+    position: absolute;
+    opacity: 0.90; /* Opacité donnée par Figma */
+    z-index: 1; /* Assure qu'elles sont derrière le formulaire */
+    display: none; /* Masquées par défaut pour éviter le désordre */
+}
+
+/* Spécifiques à chaque image pour leur positionnement */
+.img-rotated-corner {
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg) translateX(-100%); /* Positionne et pivote dans le coin supérieur gauche */
+    transform-origin: top left;
+    width: clamp(800px, 100vw, 1942.18px); /* Responsive width */
+    height: auto;
+    max-width: none; /* Empêche le max-width de 100% de Bootstrap */
+    display: block; /* Affiche l'image */
+}
+
+.img-side-top {
+    top: 0;
+    right: 0;
+    width: clamp(400px, 50vw, 1134px);
+    height: auto;
+    display: block; /* Affiche l'image */
+}
+
+.img-side-bottom {
+    bottom: 0;
+    right: 0;
+    width: clamp(600px, 60vw, 1645px);
+    height: auto;
+    display: block; /* Affiche l'image */
+}
+
+.img-bottom-banner {
+    bottom: 0;
+    left: 0;
+    width: clamp(800px, 100vw, 1920px);
+    height: auto;
+    display: block; /* Affiche l'image */
+}
+
+.fond_contact {
+    background-color: #c5b689;
+}
+.profile-container {
+    max-width: 800px; /* Limite la largeur du contenu pour une meilleure lisibilité */
+    margin: 60px auto; /* Centre le conteneur horizontalement et ajoute de l'espace vertical */
+    padding: 30px;
+    background-color: #D9D9D9; /* Utilise ton gris clair existant */
+    border: 1px solid black; /* Ajoute une bordure pour délimiter la section */
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2); /* Légère ombre pour un effet de profondeur */
+}
+
+.profile-container h1 {
+    text-align: center;
+    color: black; /* S'assure que le titre est bien noir */
+    margin-bottom: 40px; /* Plus d'espace sous le titre principal */
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Taille de police responsive pour le titre H1 */
+}
+
+.profile-container h2 {
+    font-family: 'Times New Roman', serif; /* Utilise la police de tes liens de nav */
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* Taille de police responsive pour les H2 */
+    color: black;
+    margin-bottom: 20px; /* Espace entre chaque information */
+    padding-left: 20px; /* Indentation pour la liste des infos */
+    border-left: 5px solid #A1894B; /* Petite barre décorative à gauche */
+    line-height: 1.4;
+}
+
+/* Rendre le texte des informations utilisateur un peu plus visible */
+.profile-container h2 span {
+    font-weight: 700; /* Met en gras la valeur de l'information (l'email, le nom, etc.) */
+    color: #333; /* Une couleur un peu plus sombre pour la valeur */
+}
+
     @media (max-width: 1200px) { /* Adjust fanion size for smaller desktops */
     /* Remove fixed width for img, let parent width handle it */
     /* .fanion-container img { width: 900px; height: auto; } */
@@ -294,8 +471,48 @@ footer ul li a {
     }
     /* Font sizes continue to scale with clamp */
     /* .fanion-content h1 { font-size: 2rem; } */
+
+     .contact-container {
+        padding: 30px;
+        max-width: 90%; /* Plus de largeur sur les tablettes */
+    }
+
+    .form-control-custom {
+        height: 60px; /* Un peu plus petit sur les tablettes */
+    }
+
+    textarea.form-control-custom {
+        height: 250px;
+    }
+
+    .contact-submit-button {
+        width: 280px;
+        height: 60px;
+        font-size: 20px;
+        line-height: 60px;
+    }
+
+    /* Ajuster la visibilité et la taille des images pour les tablettes */
+    .img-rotated-corner, .img-side-top, .img-side-bottom, .img-bottom-banner {
+        opacity: 0.5; /* Moins d'opacité pour ne pas surcharger */
+    }
+
+    .img-rotated-corner {
+        width: clamp(600px, 80vw, 1200px);
+    }
+    .img-side-top {
+        width: clamp(300px, 40vw, 700px);
+    }
+    .img-side-bottom {
+        width: clamp(400px, 50vw, 900px);
+    }
+    .img-bottom-banner {
+        width: clamp(600px, 80vw, 1200px);
+    }
+      .fanion-content h1 { font-size: 15px; }
 }
-    .fanion-content h1 { font-size: 15px; }
+
+  
 /* Responsive adjustments */
 @media (max-width: 768px) {
     /* ... (Tes styles existants) ... */
@@ -332,6 +549,45 @@ footer ul li a {
     }
     /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
     .fanion-content h1 { font-size: 12px; }
+ .contact-container {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+
+    .form-label-contact {
+        font-size: 20px;
+        margin-bottom: -10px;
+    }
+
+    .form-control-custom {
+        height: 55px;
+        font-size: 1rem;
+    }
+
+    textarea.form-control-custom {
+        height: 200px;
+    }
+
+    .contact-submit-button {
+        width: 100%; /* Bouton prend toute la largeur sur mobile */
+        height: 50px;
+        font-size: 18px;
+        line-height: 50px;
+    }
+
+    /* Masquer certaines images sur les petits écrans si elles gênent trop */
+    .img-rotated-corner, .img-side-bottom {
+        display: none;
+    }
+    .img-side-top, .img-bottom-banner {
+        opacity: 0.3; /* Encore moins d'opacité */
+    }
+    .img-side-top {
+        width: clamp(200px, 30vw, 400px);
+    }
+    .img-bottom-banner {
+        width: clamp(400px, 60vw, 800px);
+    }
 }
 
 
@@ -378,4 +634,30 @@ footer ul li a {
     }
     /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
     .fanion-content h1 { font-size: 9px; }
+
+        .profile-container {
+        margin: 30px 15px; /* Moins de marge sur les petits écrans */
+        padding: 20px;
+    }
+    .profile-container h2 {
+        padding-left: 10px; /* Moins d'indentation */
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
+    }
+
+     .contact-container {
+        padding: 15px;
+    }
+
+    .contact-container h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        margin-bottom: 30px;
+    }
+
+    .form-label-contact {
+        font-size: 18px;
+        margin-bottom: -5px;
+    }
+    .img-side-top, .img-bottom-banner {
+        display: none; /* Masquer toutes les images sur les très petits écrans si elles posent problème */
+    }
 }

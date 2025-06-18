@@ -5,6 +5,7 @@ require_once("../model/accueil_model.php");
 function index(){
     $parties = getUtilisateurs();
     $commentaires = getCommentaires();
+    $demandes = getMessagesAdmin();
 
     $titre="Voici tous les comptes:"; 
 
@@ -13,4 +14,3 @@ function index(){
     require('../view/admin_view.php');
     require('../view/autres_pages/footer.php');
 }
-

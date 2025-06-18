@@ -18,8 +18,9 @@ function envoi(){
     /* $messages_envoyes = getMessageDestinataire();
     $messages_recus = getMessageExpediteur(); */
     $messagerie = getUtilisateurs();
-    /* var_dump($messagerie);
-    die(); */
+    if(isset($_POST['expe']) && $_POST['expe'] != null){
+        $expe = $_POST['expe'];
+    }
     
     require('view/autres_pages/header.php');
     require('view/autres_pages/menu.php');
@@ -57,4 +58,8 @@ function reception(){
     }else{
         header('Location: /messagerie/envoi');
     }
+}
+
+function reponse(){
+
 }
