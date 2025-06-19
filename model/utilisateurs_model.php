@@ -96,16 +96,17 @@ function verif_utilisateur($utilisateur_mail)
 }
 
 //Fonction pour insérer un nouveau client
-function inscription_utilisateur($user_prenom, $user_nom, $user_email, $user_tel, $user_mdp)
+function inscription_utilisateur($user_prenom, $user_nom, $user_email, $user_tel, $user_mdp, $user_photo)
 {
     $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
-    $req = $db->prepare('INSERT INTO utilisateurs (user_prenom, user_nom, user_email, user_tel, user_mdp) VALUES (:user_prenom, :user_nom, :user_email, :user_tel, :user_mdp)');
+    $req = $db->prepare('INSERT INTO utilisateurs (user_prenom, user_nom, user_email, user_tel, user_mdp, user_photo) VALUES (:user_prenom, :user_nom, :user_email, :user_tel, :user_mdp, :user_photo)');
     $req->execute([
         'user_prenom' => $user_prenom,
         'user_nom' => $user_nom,
         'user_email' => $user_email,
         'user_tel' => $user_tel,
-        'user_mdp' => $user_mdp
+        'user_mdp' => $user_mdp, 
+        'user_photo' => $user_photo
     ]);
 /* 'user_mdp' => password_hash($user_mdp, PASSWORD_BCRYPT) */
     echo "Nouvel utilisateur inséré avec succès.";

@@ -42,6 +42,7 @@ function verif_connexion(): void
             $_SESSION['user_id']=$resultat['user_id']; 
             $_SESSION['user_tel']=$resultat['user_tel']; 
             $_SESSION['user_mdp']=$resultat['user_mdp']; 
+            $_SESSION['user_photo']=$resultat['user_photo']; 
             /* $_SESSION['user_nom']=$resultat['user_nom'];    */
             
             //on redirige l'utilisateur vers la page d'accueil
@@ -102,7 +103,9 @@ function validation_inscription()
                     $_POST['user_nom'], 
                     $_POST['user_email'], 
                     $_POST['user_tel'], 
-                    password_hash($_POST['user_mdp'],PASSWORD_DEFAULT));
+                    password_hash($_POST['user_mdp'],PASSWORD_DEFAULT),
+                    $_POST['user_photo']
+                );
                 //on crée une session pour l'utilisateur
                 session_start();
                 $_SESSION['user_nom']=$resultat['user_nom'];
@@ -111,6 +114,7 @@ function validation_inscription()
                 $_SESSION['user_id']=$resultat['user_id']; 
                 $_SESSION['user_tel']=$resultat['user_tel']; 
                 $_SESSION['user_mdp']=$resultat['user_mdp']; 
+                $_SESSION['user_photo']=$resultat['user_photo']; 
                 //on redirige l'utilisateur vers la page d'accueil
                 header('Location: /connexion');
                 //echo 'utilisateur créé';

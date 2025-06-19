@@ -17,12 +17,12 @@
                     <a class="nav-link text-dark fs-5" href="/concept">Concept</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark fs-5" href="/informations-pratiques">Informations pratiques</a>
+                    <a class="nav-link text-dark fs-5" href="/infos">Informations pratiques</a>
                 </li>
                 <?php
                 if (isset($_SESSION['user_email'])) {
                     echo '<li class="nav-item"><a class="nav-link text-dark fs-5" href="/contact">Contact</a></li>';
-                    echo '<li class="nav-item"><a class="nav-link text-dark fs-5" href="/profil">Mon profil</a></li>';
+                    /* echo '<li class="nav-item"><a class="nav-link text-dark fs-5" href="/profil">Mon profil</a></li>'; */
                 } else {
                     echo '<li class="nav-item"><a class="nav-link text-dark fs-5" href="/contact">Contact</a></li>';
                 }
@@ -36,15 +36,12 @@
                     <div class="rounded-circle border border-dark border-3" style="width: 29px; height: 29px; background: rgba(217, 217, 217, 0);"></div>
                     <div class="rotated-line-42deg ms-2"></div>
                 </div>
-                <img src="https://placehold.co/42x42" alt="Icon 1" class="img-fluid img-rotated-180 me-2" style="width: 42px; height: 42px;">
-                <img src="https://placehold.co/46x45" alt="Icon 2" class="img-fluid img-rotated-180 me-3" style="width: 46px; height: 45px;">
-                
                 <div class="d-flex flex-column flex-md-row align-items-md-center">
                     <?php
                     if (isset($_SESSION['user_email'])) {
                         // Message de bienvenue
-                        echo '<span class="navbar-text text-dark fs-5 me-md-3 mb-2 mb-md-0">Bienvenue ' . htmlspecialchars($_SESSION['user_prenom']) . ' ' . htmlspecialchars($_SESSION['user_nom']) . '</span>';
-                        
+                        echo '<span class="navbar-text text-dark fs-5 me-md-3 mb-2 mb-md-0">' . htmlspecialchars($_SESSION['user_prenom']) . ' ' . htmlspecialchars($_SESSION['user_nom']) . '</span>';
+                        echo '<a class="nav-link text-dark fs-5" href="/profil"><img class="pdp" src="view/img/pdp/'.$_SESSION['user_photo'].'" alt="Photo de profil"></a> ';
                         // Conteneur pour les boutons "Messagerie" et "Déconnexion"
                         echo '<div class="d-flex flex-column flex-sm-row">';
                         echo '<a class="btn btn-outline-primary mb-2 mb-sm-0 me-sm-2" href="/messagerie">Messagerie</a>';
@@ -52,8 +49,10 @@
                         echo '</div>'; // Fin du conteneur des boutons
                     } else {
                         // Boutons Inscription/Connexion pour les utilisateurs non connectés
-                        echo '<a class="btn btn-primary me-2" href="/inscription">Inscription</a>';
-                        echo '<a class="btn btn-outline-primary" href="/connexion">Connexion</a>';
+echo '<div class="d-flex flex-column flex-sm-row">'; // Ajout de cette div avec flex-column
+    echo '<a class="btn btn-primary mb-2 mb-sm-0 me-sm-2" href="/inscription">Inscription</a>'; // Ajout de mb-2
+    echo '<a class="btn btn-outline-primary" href="/connexion">Connexion</a>';
+    echo '</div>'; 
                     }
                     ?>
                 </div>

@@ -2,13 +2,19 @@ body {
     font-family: 'Inter', sans-serif; /* Default font */
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll due to absolute positioning */
+    overflow-x: unset; /* Prevent horizontal scroll due to absolute positioning */
     background: white;
 }
 
 .hide {
     display: none;
   }
+
+.pdp{
+    border-radius: 50%;
+    height: 5vh;
+    width: auto;
+}
 
 /* Custom Colors */
 .bg-custom-grey {
@@ -337,12 +343,23 @@ footer ul li a {
     margin-left: 5px; /* Petite indentation pour le label */
 }
 
+/* Styles spécifiques pour les inputs et textarea pour correspondre à Figma */
 .contact-container input[type="text"],
-.contact-container input[type="email"], /* Ajouté pour l'email */
+.contact-container input[type="email"],
+.contact-container input[type="password"], /* <-- AJOUTE CETTE LIGNE ! */
 .contact-container textarea {
     width: 100%; /* Les champs prennent toute la largeur disponible dans le conteneur */
     max-width: 868px; /* Aligné sur la largeur des blocs Figma */
     box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+    /* Réutilisation de ta classe existante pour le reste des styles */
+    background-color: #E5D6AC;
+    border: 3px solid #A1894B;
+    border-radius: 0;
+    height: 78px; /* Hauteur des inputs de Figma */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    color: black;
+    padding: 0.375rem 0.75rem;
 }
 
 /* Styles spécifiques pour les inputs et textarea pour correspondre à Figma */
@@ -350,11 +367,11 @@ footer ul li a {
     background-color: #E5D6AC; /* Background color from Figma */
     border: 3px solid #A1894B; /* Border color from Figma */
     border-radius: 0; /* Square corners */
-    height: 78px; /* Hauteur des inputs de Figma */
+    height: 68px; /* Hauteur des inputs de Figma */
     font-family: 'Inter', sans-serif;
-    font-size: 1.25rem; /* Larger font for input */
     color: black;
-    padding: 0.375rem 0.75rem; /* Default Bootstrap padding for inputs */
+     padding: 0.375rem 0.75rem; /* Réajuste le padding si la hauteur fixe change le texte */
+    font-size: 1.25rem;
 }
 
 textarea.form-control-custom {
@@ -456,6 +473,233 @@ textarea.form-control-custom {
     color: #333; /* Une couleur un peu plus sombre pour la valeur */
 }
 
+.banner-top {
+    background-image: url('https://placehold.co/1920x300/E5D6AC/E5D6AC'); /* Remplace par l'image de fond réelle */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 300px; /* Ajuste la hauteur selon le Figma */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Cache les débordements des éléments positionnés */
+    margin-bottom: 2rem; /* Espace après la bannière */
+}
+
+.banner-top .banner-content {
+    position: relative;
+    text-align: center;
+    color: black; /* Couleur du texte si tu en mets un */
+    z-index: 2; /* Pour s'assurer que le contenu est au-dessus de l'image d'overlay */
+}
+
+.banner-top .banner-overlay-img {
+    position: absolute;
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour un centrage parfait */
+    width: 250px; /* Ajuste la taille de l'image Sherlock Holmes */
+    height: auto;
+    opacity: 0.8; /* Ajuste l'opacité si elle est semi-transparente */
+    z-index: 1; /* Derrière le texte si tu en as */
+}
+
+.banner-top .banner-title {
+    font-family: 'Grenze Gotisch', cursive; /* Ou la police de ton titre */
+    font-size: 3rem; /* Ajuste la taille du titre */
+    color: black; /* Couleur du titre */
+    position: relative;
+    z-index: 3; /* Au-dessus de l'image d'overlay */
+}
+
+
+/* --- Styles pour les bannières intermédiaires (rubans) --- */
+.info-banner {
+    position: relative;
+    width: 100%;
+    margin-top: 3rem; /* Espacement au-dessus de la bannière */
+    margin-bottom: 3rem; /* Espacement en dessous de la bannière */
+    height: 60px; /* Hauteur de la zone de la bannière */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Pas de fond direct sur la section */
+}
+
+.info-banner .banner-ribbon {
+    background-color: #E5D6AC; /* Couleur de la bannière beige clair */
+    color: black;
+    font-family: 'Inter', sans-serif; /* Ou la police des titres des rubans */
+    font-size: 1.5rem; /* Taille du texte du ruban */
+    font-weight: bold;
+    padding: 0.8rem 2.5rem; /* Padding interne */
+    position: relative;
+    z-index: 1; /* Au-dessus des pseudo-éléments */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+    border: 2px solid #A1894B; /* Bordure foncée */
+}
+
+/* Pseudo-éléments pour les bords "pointus" du ruban */
+.info-banner .banner-ribbon::before,
+.info-banner .banner-ribbon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent; /* Moitié de la hauteur de .banner-ribbon */
+    border-bottom: 30px solid transparent; /* Moitié de la hauteur de .banner-ribbon */
+}
+
+.info-banner .banner-ribbon::before {
+    border-right: 20px solid #E5D6AC; /* Point à gauche, même couleur que le fond */
+    left: -20px;
+}
+
+.info-banner .banner-ribbon::after {
+    border-left: 20px solid #E5D6AC; /* Point à droite, même couleur que le fond */
+    right: -20px;
+}
+
+/* Pour que les pseudo-éléments aient la même bordure foncée */
+.info-banner .banner-ribbon::before {
+    border-right-color: #A1894B; /* Pointe à gauche */
+    border-right-width: 20px;
+    border-right-style: solid;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    left: -20px;
+    z-index: 0; /* Derrière le texte du ruban */
+}
+
+.info-banner .banner-ribbon::after {
+    border-left-color: #A1894B; /* Pointe à droite */
+    border-left-width: 20px;
+    border-left-style: solid;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    right: -20px;
+    z-index: 0; /* Derrière le texte du ruban */
+}
+
+/* Ajustement des bannières pour les fonds */
+.info-banner {
+    background-color: transparent; /* Le fond général de la section est transparent */
+    padding: 0; /* Pas de padding pour cette section */
+}
+
+/* --- Styles pour les blocs "CALENDRIER" et "PLAN" --- */
+.content-block {
+    background-color: #D9D9D9; /* Couleur de fond des blocs (gris clair) */
+    height: 300px; /* Hauteur fixe comme sur l'image */
+    border: 3px solid #A1894B; /* Bordure foncée */
+    position: relative; /* Pour positionner le bouton 'M' */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour du relief */
+}
+
+.content-block h2 {
+    font-family: 'Inter', sans-serif; /* Police de "CALENDRIER" et "PLAN" */
+    font-size: 2.5rem;
+    color: black;
+    text-align: center;
+    margin: 0;
+}
+
+/* --- Styles pour le tableau des tarifs --- */
+.custom-table {
+    border-collapse: collapse; /* Pour des bordures nettes */
+    background-color: #D9D9D9; /* Fond du tableau */
+    border: 3px solid #A1894B; /* Bordure extérieure du tableau */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #A1894B; /* Bordures des cellules */
+    padding: 1rem;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.custom-table th {
+    background-color: #E5D6AC; /* Fond de l'en-tête */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- Styles pour la section des icônes d'informations complémentaires --- */
+.icon-info-section .icon-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligne le contenu en haut du bloc */
+    height: 100%; /* S'assure que le bloc prend toute la hauteur disponible dans sa colonne */
+    padding: 1rem;
+    /* Si tu veux un fond comme les blocs "Pourquoi nous choisir ?" */
+    /* background-color: #D9D9D9; */
+    /* border: 2px solid #A1894B; */
+}
+
+.icon-info-section .icon-block img {
+    width: 80px; /* Ajuste la taille des icônes */
+    height: 80px;
+    border-radius: 50%; /* Si les icônes sont rondes */
+    object-fit: cover;
+    margin-bottom: 0.5rem; /* Espacement sous l'icône */
+}
+
+.icon-info-section .icon-block .icon-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* --- Styles pour la sélection d'avatar dans le formulaire d'inscription --- */
+
+/* Conteneur des avatars pour le flexbox et l'espacement */
+.avatar-selection-group {
+    gap: 15px; /* Espacement entre les avatars */
+    margin-top: 20px; /* Espace au-dessus du groupe d'avatars */
+    margin-bottom: 20px; /* Espace en dessous */
+}
+
+/* Styles par défaut pour chaque option d'avatar (le label) */
+.avatar-option {
+    cursor: pointer;
+    border: 3px solid transparent; /* Bordure transparente par défaut */
+    border-radius: 50%; /* Si tu veux que l'encadrement soit rond */
+    padding: 5px; /* Espacement entre la bordure et l'image */
+    transition: border-color 0.2s ease-in-out; /* Animation douce pour le changement de bordure */
+    display: block; /* S'assure que le label se comporte comme un bloc */
+}
+
+/* Styles pour l'image de l'avatar à l'intérieur du label */
+.avatar-option img {
+    width: 80px; /* Taille désirée pour l'avatar */
+    height: 80px; /* Assure une forme carrée ou ronde selon le border-radius */
+    object-fit: cover; /* Recadre l'image si elle ne correspond pas exactement */
+    border-radius: 50%; /* Pour rendre l'image ronde */
+    display: block; /* Supprime l'espace sous l'image */
+}
+
+/* Style de la bordure bleue lorsque l'input radio est sélectionné */
+.avatar-option input[type="radio"]:checked + img {
+    border: 3px solid #007bff; /* Bordure bleue de Bootstrap, ou toute autre couleur que tu veux */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Un léger halo bleu */
+}
+
+/* Une règle pour le survol (hover) pour indiquer que l'image est cliquable */
+.avatar-option:hover {
+    border-color: #A1894B; /* Couleur de survol, par exemple ta couleur jaune personnalisée */
+}
     @media (max-width: 1200px) { /* Adjust fanion size for smaller desktops */
     /* Remove fixed width for img, let parent width handle it */
     /* .fanion-container img { width: 900px; height: auto; } */
@@ -488,6 +732,13 @@ textarea.form-control-custom {
     textarea.form-control-custom {
         height: 250px;
     }
+
+    textarea#subject-textarea.form-control-custom {
+    height: 68px; /* Applique la même hauteur fixe que le select et les inputs */
+    min-height: 68px; /* Empêche qu'il soit plus petit si 'rows' le rendait plus petit */
+    resize: none; /* Désactive le redimensionnement par l'utilisateur pour maintenir la hauteur fixe */
+    overflow-y: hidden; /* Cache la scrollbar si le texte dépasse (pour les petites hauteurs) */
+}
 
     .contact-submit-button {
         width: 280px;
@@ -591,6 +842,48 @@ textarea.form-control-custom {
     }
     .img-bottom-banner {
         width: clamp(400px, 60vw, 800px);
+    }
+
+    .banner-top {
+        height: 200px; /* Plus petite hauteur sur mobile */
+    }
+    .banner-top .banner-overlay-img {
+        width: 150px; /* Plus petite image sur mobile */
+    }
+    .banner-top .banner-title {
+        font-size: 2rem;
+    }
+    .info-banner .banner-ribbon {
+        font-size: 1.2rem;
+        padding: 0.6rem 2rem;
+    }
+    .info-banner .banner-ribbon::before,
+    .info-banner .banner-ribbon::after {
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-right: 15px solid #E5D6AC;
+        border-left: 15px solid #E5D6AC;
+    }
+    .info-banner .banner-ribbon::before { left: -15px; }
+    .info-banner .banner-ribbon::after { right: -15px; }
+
+    .content-block {
+        height: 200px;
+    }
+    .content-block h2 {
+        font-size: 1.8rem;
+    }
+    .custom-table th,
+    .custom-table td {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+    .icon-info-section .icon-block img {
+        width: 60px;
+        height: 60px;
+    }
+    .icon-info-section .icon-block .icon-label {
+        font-size: 0.9rem;
     }
 }
 
