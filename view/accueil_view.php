@@ -23,7 +23,7 @@
       <div class="row text-center mb-5">
         <div class="col-12">
           <h2 class="fw-normal text-dark">Notre prochaine session se déroulera dans...</h2>
-          <div class="text-custom-yellow display-1 fw-bold my-4">12 jours 13 heures 8 minutes</div>
+ <div id="countdown" class="text-custom-yellow display-1 fw-bold my-4"></div>
           <div class="row justify-content-center mt-5">
             <div class="col-md-4 mb-3">
               <div class="testimonial-block p-4">
@@ -74,7 +74,7 @@
 
         <h1 class="mb-4">Notre événement</h1>
         <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae unde ipsum placeat deserunt distinctio voluptas aut accusantium suscipit consequuntur dicta! Eligendi soluta delectus sed ad ullam! Minima facilis laborum inventore? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est eaque officiis molestiae facilis doloremque ratione, amet unde veritatis ducimus quasi quis voluptatibus et aliquid maiores, voluptas harum, minima obcaecati iste!</p>
-        <button class="btn bg-custom-button mb-5">En savoir plus</button>
+        <a href="/concept" class="btn bg-custom-button mb-5">En savoir plus</a>
 
         <hr class="my-5">
 
@@ -89,7 +89,7 @@
               echo '<div class="col-12 mb-3">'; // Chaque message dans une colonne
               echo '<div class="card bg-custom-grey border-dark">'; // Carte pour le message
               echo '<div class="card-body">';
-              echo '<h1 class="card-text mb-1">' . htmlspecialchars($commentaire['user_prenom']) .' '. htmlspecialchars($commentaire['user_nom']) .'</h1><em>le '.htmlspecialchars(substr($commentaire['com_date'], 0, 10)).' à '.htmlspecialchars(substr($commentaire['com_date'], 11, 5)).'</em><br>';
+              echo '<h1 class="card-text mb-1"><img class="pdp" src="view/img/pdp/'.$commentaire['user_photo'].'" alt="Photo de profil">' . htmlspecialchars($commentaire['user_prenom']) .' '. htmlspecialchars($commentaire['user_nom']) .'</h1><em class="com-desc">le '.htmlspecialchars(substr($commentaire['com_date'], 0, 10)).' à '.htmlspecialchars(substr($commentaire['com_date'], 11, 5)).'</em><br>';
               echo '<em class="card-text mb-1">Adresse : ' . htmlspecialchars($commentaire['user_email']) .' </em><br><br>';
               echo '<h4 class="card-title mb-2">' . htmlspecialchars($commentaire['com_contenu']) . '</h4>';
               // Bouton "Voir le message"
@@ -176,5 +176,5 @@
             </div>
         </div>
     </section>
-
-  </main>
+</main>
+<script src="view/js/countdown.js"></script>
