@@ -1,7 +1,7 @@
 <header class="navbar navbar-expand-lg navbar-light bg-custom-yellow py-3">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
-            <img src="https://placehold.co/60x60" alt="Logo" class="d-inline-block align-text-top">
+            <img src="/view/img/favicon.png" alt="Logo" class="d-inline-block align-text-top imgpicto">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
                     if (isset($_SESSION['user_email'])) {
                         // Message de bienvenue
                         echo '<span class="navbar-text text-dark fs-5 me-md-3 mb-2 mb-md-0">' . htmlspecialchars($_SESSION['user_prenom']) . ' ' . htmlspecialchars($_SESSION['user_nom']) . '</span>';
-                        echo '<a class="nav-link text-dark fs-5" href="/profil"><img class="pdp" src="view/img/pdp/'.$_SESSION['user_photo'].'" alt="Photo de profil"></a>';
+                        echo '<a class="nav-link text-dark fs-5" href="/profil"><img class="pdp" src="../view/img/pdp/'.$_SESSION['user_photo'].'" alt="Photo de profil"></a>';
                         // Conteneur pour les boutons "Messagerie" et "Déconnexion"
                         echo '<div class="d-flex flex-column flex-sm-row">';
                         echo '<a class="btn btn-outline-primary mb-2 mb-sm-0 me-sm-2" href="/messagerie">Messagerie</a>';

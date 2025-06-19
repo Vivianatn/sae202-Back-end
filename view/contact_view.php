@@ -1,15 +1,10 @@
-    <section class="hero-banner-section">
-        <img src="view/img/banniere4.webp" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="background-image">
+        <img src="view/img/banniere2.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
 
         <div class="fanion-container">
             <img src="view/img/fanion14.png" alt="Fanion décoratif">
         </div>
                     <div class="row justify-content-center">
-        <div class="col-auto">
-          <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l'enquête</button>
-        </div>
       </div>
-    </section>
     <section class="fond_contact">
 <div class="contact-page-wrapper">
     <div class="contact-container">

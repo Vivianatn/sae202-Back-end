@@ -2,8 +2,11 @@ body {
     font-family: 'Inter', sans-serif; /* Default font */
     margin: 0;
     padding: 0;
-    overflow-x: unset; /* Prevent horizontal scroll due to absolute positioning */
+    overflow-x: hidden; /* Prevent horizontal scroll due to absolute positioning */
     background: white;
+    max-width: 100vw;
+    min-height: 100vh;
+
 }
 
 .hide {
@@ -140,11 +143,14 @@ h1, h2, h3 {
     line-height: 28px;
     color: black;
 }
+.tdesc{
+    text-align: justify;
+}
 
 /* Circles and Rotated Lines Section */
 .circle-placeholder {
     background: #A7A7A7;
-    border: 1px black solid;
+    border: 1px #000 solid;
 }
 
 .rotated-line-90deg {
@@ -158,9 +164,8 @@ h1, h2, h3 {
 .hero-banner-section {
     position: relative;
     overflow: hidden;
-    padding-bottom: 35%;
-    height: 0;
-    min-height: 400px;
+max-width: 100vw;
+    border-bottom: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,25 +178,23 @@ h1, h2, h3 {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100%;
     object-fit: cover;
     z-index: 1; /* Background image at the bottom layer */
 }
 
 .fanion-container {
     position: absolute;
-    top: 90%; /* Garde ta nouvelle position pour descendre le fanion */
-    left: 50%;
+    left: 50%; /* Garde ta nouvelle position pour descendre le fanion */
+    top: 75%;
     transform: translate(-50%, -50%);
     /* --- MODIFIÉ --- */
-    z-index: 3; /* Le fanion doit être au-dessus de son background, mais le z-index principal est sur la section parent */
+    z-index: 2; /* Le fanion doit être au-dessus de son background, mais le z-index principal est sur la section parent */
     width: 80%;
     max-width: 1134px;
     height: auto;
     display: block;
     overflow: hidden;
 }
-
 
 .fanion-container img {
     width: 100%; /* Image will scale with its parent .fanion-container */
@@ -201,34 +204,11 @@ h1, h2, h3 {
     object-fit: contain; /* Ensure the whole image is visible */
 }
 
-.fanion-content {
-    position: absolute;
-    top: 50%; /* Revert to center for better visual alignment with the *center* of the image's text area */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centers both horizontally and vertically */
-    text-align: center;
-    z-index: 3; /* Text above the fanion image */
-    color: black;
-    /* Adjusted width and max-width based on fanion.png proportions */
-    width: 80%; /* Adjusted from 90% to give more room, scales with fanion-container */
-    max-width: 600px; /* Reduced from 700px. This max-width targets the flat part of your fanion image */
-    padding: 0 2%; /* Reduced padding slightly as width is more controlled now */
-    box-sizing: border-box;
-}
-
-.fanion-content h1 {
-    font-family: 'Grenze Gotisch', cursive;
-    color: black;
-    /* --- UPDATED CLAMP VALUES FOR H1 FOR BETTER FIT --- */
-    font-size: clamp(1.2rem, 3.5vw, 3rem); /* Min 1.2rem (good for small mobile), grows up to 3.5vw, max 3rem (good for desktop) */
-    line-height: 1.1;
-    margin-bottom: 0.5em;
-}
-
 /* Footer */
 footer {
     background: #D5C596;
     color: black;
+    bottom: 0%;
 }
 
 footer h5 {
@@ -279,16 +259,33 @@ footer ul li a {
         height: auto; /* Allow textarea to size based on rows */
         min-height: 200px; /* Adjust as needed */
     }
+.imgpicto{
+    width: 60px;
+}
+.bg-custom-button {
+    background-color: transparent; /* Fond transparent par défaut pour l'effet outline */
+    color: #A1894B; /* Couleur du texte et de la bordure par défaut */
+    border: 3px solid #A1894B; /* Bordure plus épaisse avec ta couleur personnalisée */
+    border-radius: 20px; /* Valeur généreuse pour un effet bien arrondi (ajuste si besoin) */
+    font-family: 'Times New Roman', serif;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Ajout de border-color à la transition */
 
-    .bg-custom-button {
-        background-color: #A1894B;
-        color: black;
-        border: 3px solid #A1894B; /* Figma shows a border on the button too */
-        border-radius: 0;
-        font-family: 'Times New Roman', serif;
-        font-weight: 400;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+    /* Rendre le bouton un peu plus grand */
+    padding: 15px 35px; /* Augmenter le padding vertical et horizontal */
+    font-size: 1.25rem; /* Augmenter la taille de la police */
+    line-height: 1.5; /* Ajuster la hauteur de ligne si nécessaire pour le texte */
+    display: inline-flex; /* Permet un meilleur alignement du contenu si tu utilises flex */
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: center; /* Centre le texte horizontalement */
+}
+
+.bg-custom-button:hover {
+    background-color: #A1894B; /* Fond coloré au survol */
+    color: black; /* Texte noir au survol */
+    border-color: #A1894B; /* Conserver la même couleur de bordure au survol ou la changer si tu veux un effet différent */
+}
+
 
     .bg-custom-button:hover {
         background-color: #8c733f; /* Slightly darker on hover */
@@ -743,6 +740,130 @@ textarea.form-control-custom {
     padding: 20px; /* Ajoute un padding autour de la carte et du texte */
     display: block; /* S'assure que le bloc est un bloc pour que la carte s'étende */
 }
+.image-gallery-section {
+    padding-top: 30px; /* Ajoute de l'espace au-dessus de la galerie */
+    padding-bottom: 30px; /* Ajoute de l'espace en dessous de la galerie */
+}
+
+.gallery-image {
+    border: 2px solid #A1894B; /* Bordure autour de chaque image */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15); /* Ombre légère */
+    border-radius: 8px; /* Coins légèrement arrondis */
+    transition: transform 0.3s ease-in-out; /* Animation au survol */
+    max-width: 100%; /* S'assurer qu'elle respecte son conteneur */
+    height: auto; /* Maintient le ratio de l'image */
+}
+
+.gallery-image:hover {
+    transform: translateY(-5px); /* Léger soulèvement au survol */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.25); /* Ombre plus prononcée au survol */
+}
+
+.message-view-container {
+    max-width: 900px; /* Largeur maximale du conteneur du message */
+    margin: 60px auto; /* Centre le conteneur horizontalement et ajoute de l'espace vertical */
+    padding: 30px;
+    background-color: #D9D9D9; /* Ton gris clair existant */
+    border: 3px solid #A1894B; /* Bordure prononcée avec ta couleur personnalisée */
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2); /* Ombre marquée pour un effet de profondeur */
+    text-align: center; /* Centre les titres */
+    position: relative;
+}
+
+.message-view-container h1 {
+    font-family: 'Grenze Gotisch', cursive; /* Police de tes titres principaux */
+    font-size: clamp(2.2rem, 4vw, 3rem); /* Taille de police responsive pour le titre du message */
+    color: black;
+    margin-bottom: 30px; /* Espace sous le titre du message */
+    text-align: center;
+}
+
+.message-view-container .message-details-block {
+    text-align: left; /* Alignement du texte à gauche pour les détails et le contenu */
+    margin-bottom: 40px; /* Espace sous le bloc de détails */
+    padding: 20px;
+    background-color: rgba(229, 214, 172, 0.5); /* Couleur beige semi-transparente pour le fond des détails */
+    border: 1px solid #A1894B;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre interne discrète */
+}
+
+.message-view-container .message-details-block h2 {
+    font-family: 'Inter', sans-serif; /* Police pour les labels d'information (De, À) */
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Taille de police responsive */
+    color: black;
+    margin-bottom: 10px; /* Espacement entre les lignes de détails */
+    padding-left: 15px; /* Indentation */
+    position: relative;
+}
+
+/* Petite barre décorative à gauche de chaque information de détail */
+.message-view-container .message-details-block h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px; /* Largeur de la barre */
+    height: 70%; /* Hauteur de la barre */
+    background-color: #A1894B; /* Couleur de ta marque */
+    border-radius: 3px; /* Coins arrondis pour la barre */
+}
+
+/* Style pour les valeurs (expéditeur, destinataire) */
+.message-view-container .message-details-block h2 span {
+    font-weight: bold; /* Met en gras la valeur */
+    color: #333; /* Couleur légèrement plus foncée pour la valeur */
+    font-family: 'Times New Roman', serif; /* Police distinctive pour les valeurs */
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem); /* Ajuste la taille de la valeur */
+}
+
+.message-view-container .message-content-label {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color: black;
+    margin-top: 25px; /* Espace au-dessus du label "Message :" */
+    margin-bottom: 10px;
+    padding-left: 15px; /* Aligné avec les autres labels */
+    position: relative; /* Pour la barre décorative */
+    text-align: left;
+}
+
+/* Barre décorative pour le label "Message :" */
+.message-view-container .message-content-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 70%;
+    background-color: #A1894B;
+    border-radius: 3px;
+}
+
+
+.message-view-container .message-content-text {
+    font-family: 'Times New Roman', serif; /* Police pour le contenu du message */
+    font-size: clamp(1rem, 1.8vw, 1.15rem); /* Taille de police pour le contenu */
+    color: #333; /* Couleur de texte sombre mais pas noir absolu */
+    line-height: 1.6; /* Meilleure lisibilité pour les paragraphes */
+    white-space: pre-wrap; /* Préserve les espaces et retours à la ligne du HTML */
+    text-align: justify; /* Justifie le texte du message */
+    padding-left: 15px; /* Pour aligner le contenu avec les barres des titres */
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+
+
+/* Style du bouton "Répondre" */
+.message-view-container .btn {
+    /* Utilise tes classes .bg-custom-button pour la couleur, police, etc. */
+    margin-top: 30px; /* Espace au-dessus du bouton */
+    border: 3px solid #A1894B; /* Bordure du bouton */
+    border-radius: 0; /* Coins carrés */
+    padding: 12px 30px; /* Ajuste le padding pour une taille agréable */
+    font-size: 1.3rem; /* Taille de police du bouton */
+}
 
     @media (max-width: 1200px) { /* Adjust fanion size for smaller desktops */
     /* Remove fixed width for img, let parent width handle it */
@@ -838,8 +959,7 @@ textarea.form-control-custom {
     }
 
     .hero-banner-section {
-        height: auto; /* Let the padding-bottom determine height primarily */
-        min-height: 300px; /* Smaller min-height for smaller screens */
+        height: auto; /* Let the padding-bottom determine height primarily */ /* Smaller min-height for smaller screens */
     }
     .fanion-container {
         width: 90%; /* Allow it to take up more width on smaller screens, but scale */
@@ -935,8 +1055,43 @@ textarea.form-control-custom {
         height: 140px; /* Ajusté pour mobile */
         margin-bottom: 20px;
     }
-}
 
+      .gallery-image {
+        max-width: 90%; /* Réduit la largeur sur mobile pour laisser un peu d'espace */
+    }
+.message-view-container {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+    .message-view-container h1 {
+        font-size: 1.8rem;
+    }
+    .message-view-container .message-details-block {
+        padding: 15px;
+    }
+    .message-view-container .message-details-block h2 {
+        font-size: 0.9rem;
+        padding-left: 10px;
+    }
+    .message-view-container .message-details-block h2 span {
+        font-size: 1rem;
+    }
+    .message-view-container .message-content-label {
+        font-size: 1rem;
+        margin-top: 15px;
+        padding-left: 10px;
+    }
+    .message-view-container .message-content-text {
+        font-size: 0.95rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .message-view-container .btn {
+        padding: 10px 25px;
+        font-size: 1.1rem;
+    }
+    
+}
 
 @media (max-width: 576px) {
     .header-logo {
@@ -969,15 +1124,10 @@ textarea.form-control-custom {
     .navbar-toggler {
         margin-left: auto;
     }
-    .hero-banner-section {
-        /* You had height: 400px; here. Consider if padding-bottom is sufficient or if you want a fixed height on smallest screens */
-        padding-bottom: 50%; /* Make it taller relative to width on mobile if needed */
-        min-height: 250px;
-    }
     .fanion-container {
         width: 95%; /* Even wider on smallest screens to maximize space, but still scales */
         max-width: 350px; /* Limit max size for phones */
-        top: 60%; /* Adjust top if needed */
+        top: 35%; /* Adjust top if needed */
     }
     /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
     .fanion-content h1 { font-size: 9px; }
@@ -1006,5 +1156,9 @@ textarea.form-control-custom {
     }
     .img-side-top, .img-bottom-banner {
         display: none; /* Masquer toutes les images sur les très petits écrans si elles posent problème */
+    }
+
+    .container p{
+        margin:0 5%;
     }
 }

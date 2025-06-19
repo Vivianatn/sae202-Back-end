@@ -28,7 +28,7 @@
     </div>
     <div class="row mt-4">
       <div class="col-12 text-center text-dark">
-        <p>&copy; <?php echo date("Y"); ?> <a href="https://mmi24f01.sae202.ovh/agence">Cercle 211B</a>. Tous droits réservés.</p>
+        <p>&copy; <?php echo date("Y"); ?> <a href="https://mmi24f01.sae202.ovh/agence">Cercle 221B</a>. Tous droits réservés.</p>
       </div>
     </div>
   </footer>

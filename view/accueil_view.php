@@ -1,15 +1,27 @@
 <main>
-    <section class="hero-banner-section">
-        <img src="view/img/banniere3.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="background-image">
+        <img src="view/img/banniere3.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
 
         <div class="fanion-container">
             <img src="view/img/fanion1.png" alt="Fanion décoratif">
         </div>
-                    <div class="row justify-content-center">
-        <div class="col-auto">
-          <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l'enquête</button>
-        </div>
+<div class="row justify-content-center mt-5">
+    <div class="col-auto">
+        <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l'enquête</button>
+    </div>
+</div>
       </div>
+  <section class="container image-gallery-section">
+        <div class="row justify-content-center align-items-center g-3">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+                <img src="view/img/image_20.webp" alt="Image 1 de l'événement" class="img-fluid gallery-image">
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+                <img src="view/img/image_21.webp" alt="Image 2 de l'événement" class="img-fluid gallery-image">
+            </div>
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+                <img src="view/img/image_22.webp" alt="Image 3 de l'événement" class="img-fluid gallery-image">
+            </div>
+        </div>
     </section>
     <section class="container-fluid bg-custom-grey py-5 section-border">
       <div class="row justify-content-center text-center">
@@ -22,8 +34,9 @@
     <section class="container-fluid py-5">
       <div class="row text-center mb-5">
         <div class="col-12">
-          <h2 class="fw-normal text-dark">Notre prochaine session se déroulera dans...</h2>
- <div id="countdown" class="text-custom-yellow display-1 fw-bold my-4"></div>
+          <h2 class="fw-normal text-dark">Le Comte mourra dans...</h2>
+          <div id="countdown" class="text-custom-yellow display-1 fw-bold my-4"></div>
+<a href="/reservation"><button type="button" class="bg-custom-button">Je participe !</button></a>
           <div class="row justify-content-center mt-5">
             <div class="col-md-4 mb-3">
               <div class="testimonial-block p-4">
@@ -70,10 +83,10 @@
     <section class="container py-5">
         </div>
 
-        <hr class="my-5">
-
+        <hr class="my-5">   
+        
         <h1 class="mb-4">Notre événement</h1>
-        <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae unde ipsum placeat deserunt distinctio voluptas aut accusantium suscipit consequuntur dicta! Eligendi soluta delectus sed ad ullam! Minima facilis laborum inventore? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est eaque officiis molestiae facilis doloremque ratione, amet unde veritatis ducimus quasi quis voluptatibus et aliquid maiores, voluptas harum, minima obcaecati iste!</p>
+        <p class="lead mb-4 justifier">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae unde ipsum placeat deserunt distinctio voluptas aut accusantium suscipit consequuntur dicta! Eligendi soluta delectus sed ad ullam! Minima facilis laborum inventore? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est eaque officiis molestiae facilis doloremque ratione, amet unde veritatis ducimus quasi quis voluptatibus et aliquid maiores, voluptas harum, minima obcaecati iste!</p>
         <a href="/concept" class="btn bg-custom-button mb-5">En savoir plus</a>
 
         <hr class="my-5">

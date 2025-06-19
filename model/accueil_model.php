@@ -115,7 +115,7 @@ function commentaireVerifie(){
         $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
 
         // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
-        $req = $db->query('SELECT * FROM commentaires INNER JOIN utilisateurs ON commentaires.com_utilisateur = utilisateurs.user_id WHERE com_verif = 1');
+        $req = $db->query('SELECT * FROM commentaires INNER JOIN utilisateurs ON commentaires.com_utilisateur = utilisateurs.user_id WHERE com_verif = 1 ORDER BY com_date DESC');
 
         // Récupération des résultats
         $commentaires = $req->fetchAll(PDO::FETCH_ASSOC);
