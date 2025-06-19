@@ -28,11 +28,24 @@
         </div>
     </section>
 
-    <section class="container my-5">
+ <section class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
-                <div class="content-block plan-block d-flex justify-content-center align-items-center bg-light">
-                    <h2 class="text-dark">PLAN</h2>
+                <div class="content-block map-block bg-light">
+                    <h2 class="text-dark text-center mb-4">NOTRE EMPLACEMENT</h2>
+                    <div class="map-responsive">
+                        <iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.4297835826873784%2C48.466444528464116%2C3.432465791702271%2C48.46782459594405&amp;layer=mapnik" style="border: 1px solid black; background-color: #E5D6AC;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <br/><small><a href="https://www.openstreetmap.org/?#map=19/48.467135/3.431125" target="_blank" rel="noopener noreferrer">Afficher une carte plus grande</a></small>
+                    </div>
+                    <p class="mt-3 text-dark text-center">
+                        Adresse : Château de La Motte Tilly D951 10400 La Motte Tilly
+<br>
+                        Accès en transport en commun : [Lignes de bus, etc.]<br>
+                        Parking disponible : Oui / Non
+                    </p>
+                    <p class="text-dark text-center">
+                        Accessibilité PMR : [Oui / Non / Détails]
+                    </p>
                 </div>
             </div>
         </div>

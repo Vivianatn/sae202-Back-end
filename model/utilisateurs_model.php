@@ -111,3 +111,32 @@ function inscription_utilisateur($user_prenom, $user_nom, $user_email, $user_tel
 /* 'user_mdp' => password_hash($user_mdp, PASSWORD_BCRYPT) */
     echo "Nouvel utilisateur inséré avec succès.";
 }
+
+function modificationUtilisateur($nom, $prenom, $tel, $email, $photo)
+{
+    try {
+    // Connexion à la base de données
+    $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+
+    // Préparation de la requête SQL pour mettre à jour les informations de l'utilisateur
+    $req = $db->prepare('UPDATE utilisateurs SET user_nom = :nom, user_prenom = :prenom, user_tel = :tel, user_email = :email, user_photo = :photo WHERE user_id = :id');
+
+    // Exécution de la requête avec les paramètres
+    $req->execute([
+        'nom' => $nom,
+        'prenom' => $prenom,
+        'tel' => $tel,
+        'email' => $email,
+        'photo' => $photo,
+        'id' => $_SESSION['user_id']
+    ]);
+    $_SESSION['user_nom'] = $nom;
+    $_SESSION['user_prenom'] = $prenom;
+    $_SESSION['user_tel'] = $tel;
+    $_SESSION['user_email'] = $email;
+    $_SESSION['user_photo'] = $photo;
+} catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}

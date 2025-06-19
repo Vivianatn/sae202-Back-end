@@ -77,47 +77,47 @@ $user_message = $_POST['user_message'] ?? '';
                             <input type="password" class="form-control form-control-custom" id="user_mdp2" name="user_mdp2" placeholder="Confirmer le mot de passe" maxlength="25" required>
                         </div>
 
-        <div class="d-flex flex-wrap justify-content-center align-items-center avatar-selection-group">
-    <label class="avatar-option">
-        <input type="radio" id="avatar1" name="user_photo" value="pdp_avatar.webp" class="hide" required checked>
-        <img src="view/img/pdp/pdp_avatar.webp" alt="Avatar 1">
-    </label>
+                        <div class="d-flex flex-wrap justify-content-center align-items-center avatar-selection-group">
+                            <label class="avatar-option">
+                                <input type="radio" id="avatar1" name="user_photo" value="pdp_avatar.webp" class="hide" required checked>
+                                <img src="view/img/pdp/pdp_avatar.webp" alt="Avatar 1">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar2" name="user_photo" value="pdp_cercle.webp">
-        <img src="view/img/pdp/pdp_cercle.webp" alt="Avatar 2">
-    </label>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar2" name="user_photo" value="pdp_cercle.webp">
+                                <img src="view/img/pdp/pdp_cercle.webp" alt="Avatar 2">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar3" name="user_photo" value="pdp_chateau.webp">
-        <img src="view/img/pdp/pdp_chateau.webp" alt="Avatar 3">
-    </label>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar3" name="user_photo" value="pdp_chateau.webp">
+                                <img src="view/img/pdp/pdp_chateau.webp" alt="Avatar 3">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar4" name="user_photo" value="pdp_comte.webp">
-        <img src="view/img/pdp/pdp_comte.webp" alt="Avatar 4">
-    </label>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar4" name="user_photo" value="pdp_comte.webp">
+                                <img src="view/img/pdp/pdp_comte.webp" alt="Avatar 4">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar5" name="user_photo" value="pdp_couteau.webp">
-        <img src="view/img/pdp/pdp_couteau.webp" alt="Avatar 5">
-    </label>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar5" name="user_photo" value="pdp_couteau.webp">
+                                <img src="view/img/pdp/pdp_couteau.webp" alt="Avatar 5">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar6" name="user_photo" value="pdp_loupe.webp">
-        <img src="view/img/pdp/pdp_loupe.webp" alt="Avatar 6">
-    </label>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar6" name="user_photo" value="pdp_loupe.webp">
+                                <img src="view/img/pdp/pdp_loupe.webp" alt="Avatar 6">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar7" name="user_photo" value="pdp_pipe.webp">
-        <img src="view/img/pdp/pdp_pipe.webp" alt="Avatar 7">
-    </label>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar7" name="user_photo" value="pdp_pipe.webp">
+                                <img src="view/img/pdp/pdp_pipe.webp" alt="Avatar 7">
+                            </label>
 
-    <label class="avatar-option">
-        <input class="hide" type="radio" id="avatar8" name="user_photo" value="pdp_Sherlock.webp">
-        <img src="view/img/pdp/pdp_Sherlock.webp" alt="Avatar 8">
-    </label>
-</div>
+                            <label class="avatar-option">
+                                <input class="hide" type="radio" id="avatar8" name="user_photo" value="pdp_Sherlock.webp">
+                                <img src="view/img/pdp/pdp_Sherlock.webp" alt="Avatar 8">
+                            </label>
+                        </div>
 
                         <!-- <div class="col-12">
                             <label for="user_message" class="form-label text-dark fs-5" style="font-family: 'Inter', sans-serif;">Message, Questions...</label>
