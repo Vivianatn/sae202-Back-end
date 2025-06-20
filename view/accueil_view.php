@@ -1,12 +1,13 @@
+<img src="view/img/bannierev2.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
 <main>
-        <img src="view/img/banniere3.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
-
-        <div class="fanion-container">
-            <img src="view/img/fanion1.png" alt="Fanion décoratif">
-        </div>
-<div class="row justify-content-center mt-5">
+<section class="fond_contact"></section>
+        <div class="row justify-content-center mt-3">
     <div class="col-auto">
-        <button class="btn bg-custom-button px-5 py-3 fs-4">Démarrer l'enquête</button>
+                <div class="info-banner my-5">
+        <div class="banner-ribbon">
+            <span class="ribbon-text">Accueil</span>
+        </div>
+</div>
     </div>
 </div>
       </div>
@@ -30,51 +31,50 @@
         </div>
       </div>
     </section>
+<section class="container my-5 py-5">
+    <div class="row justify-content-center g-4 info-cards-section">
+        <div class="col-12 col-md-6 col-lg-3 text-center">
+            <div class="info-card">
+                <img src="/view/img/picto role 1.png" alt="Icône Rôle et Scénario" class="img-fluid mb-3">
+                <h3 class="info-card-title">Découvrez le scénario et le rôle que vous allez jouer.</h3>
+                <a href="/scenario" class="info-card-button bg-custom-button mt-3">Démarrer l'enquête !</a>
+            </div>
+        </div>
 
-    <section class="container-fluid py-5">
+        <div class="col-12 col-md-6 col-lg-3 text-center">
+            <div class="info-card">
+                <img src="/view/img/picto date 1.png" alt="Icône Calendrier et Dates" class="img-fluid mb-3">
+                <h3 class="info-card-title">Dates, lieux, tarifs et réservations.</h3>
+                <a href="/reservation" class="info-card-button bg-custom-button mt-3">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3 text-center">
+            <div class="info-card">
+                <img src="/view/img/picto discussion 1.png" alt="Icône Discussion et Indices" class="img-fluid mb-3">
+                <h3 class="info-card-title">Espace joueur pour discuter, échanger des indices.</h3>
+                <a href="/messagerie" class="info-card-button bg-custom-button mt-3">Partagez votre expérience</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3 text-center">
+            <div class="info-card">
+                <img src="/view/img/picto interrogation 1.png" alt="Icône Point d'interrogation et Aide" class="img-fluid mb-3">
+                <h3 class="info-card-title">Une question ? <br>Besoin d'aide ?</h3>
+                <a href="/contact" class="info-card-button bg-custom-button mt-3">Besoin d'aide ?</a>
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="meurtre" class="container-fluid py-2">
       <div class="row text-center mb-5">
         <div class="col-12">
           <h2 class="fw-normal text-dark">Le Comte mourra dans...</h2>
           <div id="countdown" class="text-custom-yellow display-1 fw-bold my-4"></div>
 <a href="/reservation"><button type="button" class="bg-custom-button">Je participe !</button></a>
           <div class="row justify-content-center mt-5">
-            <div class="col-md-4 mb-3">
-              <div class="testimonial-block p-4">
-                <p class="fs-5 text-center">Illud tamen clausos vehementer angebat quod</p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="testimonial-block p-4">
-                <p class="fs-5 text-center">Illud tamen clausos vehementer angebat quod</p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="testimonial-block p-4">
-                <p class="fs-5 text-center">Illud tamen clausos vehementer angebat quod</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row text-center mb-5">
-        <div class="col-12">
-          <h2 class="fw-normal text-dark">Quelques témoignages pour vous donnez envie de <br/>plonger dans notre univers.</h2>
-          <div class="row justify-content-around py-4">
-            <div class="col-md-4 mb-4">
-              <div class="testimonial-block p-5 text-center" style="height: 224px;">
-                <p>Témoignage 1</p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="testimonial-block p-5 text-center" style="height: 224px;">
-                <p>Témoignage 2</p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="testimonial-block p-5 text-center" style="height: 224px;">
-                <p>Témoignage 3</p>
-              </div>
-            </div>
+            <h2>Nombre de participants déjà inscrits :</h2>
+            <h1><?php echo $nb_inscrits[0]['COUNT(*)'] ?>/60</h1>
           </div>
         </div>
       </div>
@@ -85,16 +85,21 @@
 
         <hr class="my-5">   
         
-        <h1 class="mb-4">Notre événement</h1>
-        <p class="lead mb-4 justifier">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae unde ipsum placeat deserunt distinctio voluptas aut accusantium suscipit consequuntur dicta! Eligendi soluta delectus sed ad ullam! Minima facilis laborum inventore? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est eaque officiis molestiae facilis doloremque ratione, amet unde veritatis ducimus quasi quis voluptatibus et aliquid maiores, voluptas harum, minima obcaecati iste!</p>
-        <a href="/concept" class="btn bg-custom-button mb-5">En savoir plus</a>
+        <h1 class="mb-4">Notre événement : Le Mystère du Comte Assassiné</h1>
+<p class="lead mb-4 justifier">
+    Plongez au cœur d'une énigme palpitante digne des plus grandes aventures de Sherlock Holmes ! Le "Cercle 221B" vous convie à une expérience immersive unique en son genre : le Mort du Comte. Dans l'atmosphère feutrée et majestueuse du Château de La Motte Tilly, le Comte de La Motte a été retrouvé sans vie. Qui a commis l'irréparable ? Quels secrets se cachent derrière les murs ancestraux ?
+</p>
+<p class="lead mb-4 justifier">
+    Revêtez votre costume d'enquêteur du XIXe siècle et unissez vos forces. Interrogez les suspects, examinez les moindres recoins du château, décodez les indices cachés et démêlez les mensonges des vérités. Chaque détail compte, chaque conversation peut révéler un élément crucial. Votre sagacité sera mise à l'épreuve pour démasquer le coupable avant que la nuit ne s'achève. Préparez-vous à une immersion totale où l'histoire prend vie et où chaque participant devient le héros de sa propre enquête.
+</p>
+<a href="/concept" class="bg-custom-button mb-5">En savoir plus sur le Concept</a>
 
         <hr class="my-5">
 
         <div class="container py-4">
         <br><br>
         <div class="row"></div>
-        <h1 class="mb-4">Voici les commentaires :</h1>
+        <h1 class="mb-4">Espace commentaires :</h1>
         <?php
           if(!empty($commentaires_verif)){
             foreach ($commentaires_verif as $commentaire) {
@@ -106,7 +111,7 @@
               echo '<em class="card-text mb-1">Adresse : ' . htmlspecialchars($commentaire['user_email']) .' </em><br><br>';
               echo '<h4 class="card-title mb-2">' . htmlspecialchars($commentaire['com_contenu']) . '</h4>';
               // Bouton "Voir le message"
-              /* echo '<button type="submit" name="id" value="' . htmlspecialchars($commentaire['mes_id']) . '" class="btn bg-custom-button px-4 py-2">Voir le message</button>'; */
+              /* echo '<button type="submit" name="id" value="' . htmlspecialchars($commentaire['mes_id']) . '" class="bg-custom-button px-4 py-2">Voir le message</button>'; */
               echo '</div>'; // Fin card-body
               echo '</div>'; // Fin card
               echo '</div>'; // Fin col
@@ -128,43 +133,17 @@
                     <input type="text" class="form-control form-control-custom" id="com_contenu" name="com_contenu" placeholder="Commentaire..." value="" required>
                   </div>';
             echo '<br><br>';
-            echo '<button class="btn btn-success px-4 py-2">Envoyer</button>';
+            echo '<button class="bg-custom-button">Envoyer</button>';
             echo '</form>';
         }
         ?>
     </section>
 
-    <section class="container py-5">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-3 d-flex flex-column align-items-center mb-4">
-                <div class="circle-placeholder rounded-circle mb-3" style="width: 164px; height: 164px;"></div>
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Dates, lieux, tarifs et <br/>réservations.</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">En savoir plus</button>
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <div class="rotated-line-90deg"></div>
-            </div>
-            <div class="col-md-3 d-flex flex-column align-items-center mb-4">
-                <img src="https://placehold.co/271x258" alt="Placeholder" class="img-fluid mb-3" style="width: 271px; height: 258px;">
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Espace joueur pour discuter, <br/>échanger des indices.</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">Partagez votre expérience</button>
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <div class="rotated-line-90deg"></div>
-            </div>
-            <div class="col-md-3 d-flex flex-column align-items-center mb-4">
-                <img src="https://placehold.co/480x456" alt="Placeholder" class="img-fluid mb-3" style="width: 300px; height: auto;">
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Une question ? Besoin d'aide ?</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">Besoin d'aide ?</button>
-            </div>
-        </div>
-    </section>
 
     <section class="container-fluid bg-custom-yellow py-5">
         <div class="row justify-content-center text-center mb-4">
             <div class="col-12">
                 <h2 class="display-4 fw-normal text-dark mb-4">Saurez-vous percer le mystère ?</h2>
-                <p class="fs-4 text-dark" style="font-family: 'Inter', sans-serif;">Démarrer l'enquête</p>
                 <div class="row justify-content-center align-items-center my-4">
                     <div class="col-md-4">
                         <img src="https://placehold.co/327x399" alt="Placeholder" class="img-fluid mb-3" style="width: 327px; height: 399px;">
@@ -189,5 +168,7 @@
             </div>
         </div>
     </section>
+    </section>
 </main>
 <script src="view/js/countdown.js"></script>
+    

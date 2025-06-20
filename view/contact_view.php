@@ -1,11 +1,10 @@
-        <img src="view/img/banniere2.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
-
-        <div class="fanion-container">
-            <img src="view/img/fanion14.png" alt="Fanion décoratif">
-        </div>
-                    <div class="row justify-content-center">
-      </div>
+        <img src="view/img/banniere2v2.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
     <section class="fond_contact">
+                <div class="info-banner">
+        <div class="banner-ribbon">
+            <span class="ribbon-text">Messagerie du Comte</span>
+        </div>
+    </div>
 <div class="contact-page-wrapper">
     <div class="contact-container">
         <form action="/contact/contactadmin" method="post">
@@ -17,7 +16,7 @@
             <label for="message-input" class="form-label-contact">Message...</label>
             <textarea id="message-input" name="mesad_contenu" placeholder="" class="form-control-custom contact-textarea-message"></textarea>
 
-            <button type="submit" class="bg-custom-button contact-submit-button">Envoyer</button>
+            <button type="submit" class="bg-custom-button contact-submit-button">Lancer Pigeon Messager</button>
         </form>
     </div>
 

@@ -108,6 +108,27 @@ function getMessagesAdmin(){
     }
 }
 
+function getUtilisateursInscrits(){
+
+    try {
+        // Connexion à la base de données
+        $db = new PDO('mysql:host='.HOST.';dbname='.DBNAME.'', USER, PASSWORD);
+    
+        // Requête SQL pour sélectionner les jeux triés par ordre alphabétique
+        $req = $db->query('SELECT * FROM reservation INNER JOIN utilisateurs ON reservation.reserv_utilisateur = utilisateurs.user_id INNER JOIN tarifs ON reservation.reserv_tarif = tarifs.tarif_id ORDER BY reserv_id DESC');
+    
+        // Récupération des résultats
+        $inscrits = $req->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Return des jeux
+        return $inscrits ;
+    
+    } catch (PDOException $e) {
+        // Gestion des erreurs de connexion
+        die("Erreur de connexion à la base de données: " . $e->getMessage());
+    }
+}
+
 function commentaireVerifie(){
 
     try {

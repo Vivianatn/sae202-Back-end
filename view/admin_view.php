@@ -219,76 +219,51 @@
                  </tbody>
             </table>
         </div>
+        <hr>
+        <h1 class="mb-4">Utilisateurs inscrits à l'événement :</h1>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">Numértation</th>
+                        <th class="text-center">Réservateur</th>
+                        <th class="text-center">Tarif</th>
+                        <th class="text-center">Cout (en €)</th>
+                        <th class="text-center">Email de réservation</th>
+                        <th class="text-center">Suppression de la réservation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Assurez-vous que $parties est défini avant de l'itérer&& is_array($commentaires)
+                    /* var_dump($demandes); */
+                    if (!empty($inscrits)) {    
+                      $nb = 1;
+                        foreach ($inscrits as $inscrit) {
+                            echo '<tr>';
+                            echo '<td>' . $nb . '</td>';
+                            echo '<td>' . htmlspecialchars($inscrit['user_nom']) .' '. htmlspecialchars($inscrit['user_nom']).'</td>';
+                            echo '<td>' . htmlspecialchars($inscrit['tarif_titre']) . '</td>';
+                            echo '<td>' . htmlspecialchars($inscrit['tarif_argent']) . '</td>';
+                            echo '<td>' . htmlspecialchars($inscrit['reserv_email']) . '</td>';
+                            echo '<td><form class="text-center" action="/reservation/annuler" method="post"><button class="btn btn-outline-danger" type="submit" name="id" value="'.$inscrit['user_id'].'">Supprimer</button></form></td>';
+                            echo '</tr>';
+                            $nb++;
+                        }}
+                            /* echo '<td><form class="text-center" action="../accueil/repondre" method="post"><button class="btn btn-success" type="submit" name="user_email" value="'.$inscrit['user_email'].'">Répondre</button></form></td>'; */
+                           /*  if( $inscrit['mesad_lu'] == 0){
+                                echo '<td class="text-center"><form class="text-center" action="../accueil/lu" method="post"><button type="submit" name="id" value="'.$inscrit['mesad_id'].'" class="btn btn-danger">Non répondu</button></form></td>';
+                            } else {
+                                echo '<td class="text-center"><button class="btn btn-outline-success">Répondu</button></td>';
+                            }
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5" class="text-center">Aucune réservation.</td></tr>';
+                    } */
+                    ?>
+                 </tbody>
+            </table>
+        </div>
         </section>
-
-<!--         <hr class="my-5">
-
-        <h1 class="mb-4">Notre événement</h1>
-        <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae unde ipsum placeat deserunt distinctio voluptas aut accusantium suscipit consequuntur dicta! Eligendi soluta delectus sed ad ullam! Minima facilis laborum inventore? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est eaque officiis molestiae facilis doloremque ratione, amet unde veritatis ducimus quasi quis voluptatibus et aliquid maiores, voluptas harum, minima obcaecati iste!</p>
-        <button class="btn bg-custom-button mb-5">En savoir plus</button>
-
-        <hr class="my-5">
-
-        <h1 class="mb-4">Voici les commentaires :</h1>
-        <div class="alert alert-info" role="alert">
-            Aucun commentaire pour l'instant.
-        </div>
-    </section>
-
-    <section class="container py-5">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-3 d-flex flex-column align-items-center mb-4">
-                <div class="circle-placeholder rounded-circle mb-3" style="width: 164px; height: 164px;"></div>
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Dates, lieux, tarifs et <br/>réservations.</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">En savoir plus</button>
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <div class="rotated-line-90deg"></div>
-            </div>
-            <div class="col-md-3 d-flex flex-column align-items-center mb-4">
-                <img src="https://placehold.co/271x258" alt="Placeholder" class="img-fluid mb-3" style="width: 271px; height: 258px;">
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Espace joueur pour discuter, <br/>échanger des indices.</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">Partagez votre expérience</button>
-            </div>
-            <div class="col-auto d-flex align-items-center">
-                <div class="rotated-line-90deg"></div>
-            </div>
-            <div class="col-md-3 d-flex flex-column align-items-center mb-4">
-                <img src="https://placehold.co/480x456" alt="Placeholder" class="img-fluid mb-3" style="width: 300px; height: auto;">
-                <h3 class="fs-4 fw-bold mb-3" style="font-family: 'Times New Roman', serif; line-height: 1.2;">Une question ? Besoin d’aide ?</h3>
-                <button class="btn bg-custom-button px-4 py-2 mt-auto">Besoin d’aide ?</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="container-fluid bg-custom-yellow py-5">
-        <div class="row justify-content-center text-center mb-4">
-            <div class="col-12">
-                <h2 class="display-4 fw-normal text-dark mb-4">Saurez-vous percer le mystère ?</h2>
-                <p class="fs-4 text-dark" style="font-family: 'Inter', sans-serif;">Démarrer l’enquête</p>
-                <div class="row justify-content-center align-items-center my-4">
-                    <div class="col-md-4">
-                        <img src="https://placehold.co/327x399" alt="Placeholder" class="img-fluid mb-3" style="width: 327px; height: 399px;">
-                    </div>
-                    <div class="col-md-6">
-                        <p class="fs-5 text-dark" style="font-family: 'Times New Roman', serif;">
-                            Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos <br/>vocare amicitiam, ut par sit ratio acceptorum et datorum. Divitior mihi et affluentior videtur esse vera amicitia nec observare r<br/>estricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat, aut ne plus <br/>aequo quid in amicitiam congeratur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-<!--         <div class="row justify-content-around text-center my-5">
-            <div class="col-md-3 mb-4">
-                <img src="https://placehold.co/438x536" alt="Placeholder" class="img-fluid">
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="https://placehold.co/410x501" alt="Placeholder" class="img-fluid">
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="https://placehold.co/367x449" alt="Placeholder" class="img-fluid">
-            </div>
-        </div>
-    </section> -->
-
-  </main>
+        </section>

@@ -1,13 +1,17 @@
 body {
-    font-family: 'Inter', sans-serif; /* Default font */
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll due to absolute positioning */
+    overflow-x: hidden;
     background: white;
     max-width: 100vw;
     min-height: 100vh;
 
 }
+
+html {
+    scroll-behavior: smooth;
+  }
 
 .hide {
     display: none;
@@ -28,16 +32,21 @@ header .pdp, h1  .pdp, div .pdp{
 .bg-custom-grey {
     background-color: #D9D9D9;
 }
+
 .justifier{
 text-align: justify;
+}
+
+.espace-gauche {
+    margin-left: 0.6vw;
 }
 
 .bg-custom-button {
     background-color: #A1894B;
     color: black;
     border: none;
-    border-radius: 0; /* Remove Bootstrap's default border-radius if any */
-    font-family: 'Times New Roman', serif; /* Specific font for buttons */
+    border-radius: 0;
+    font-family: 'Times New Roman', serif;
     font-weight: 400;
 }
 
@@ -49,12 +58,10 @@ text-align: justify;
     color: #A1894B;
 }
 
-/* Garde ton CSS existant jusqu'à la section responsive */
 
-/* Header et Navigation */
 header {
     width: 100%;
-    min-height: 80px; /* Optional: set a minimum height if needed */
+    min-height: 80px;
     background: #D5C596;
     position: relative;
     display: flex;
@@ -63,9 +70,7 @@ header {
     padding: 0 20px;
 }
 
-/* Conserver les autres styles du header et nav */
 
-/* Styles pour le logo */
 .header-logo {
     position: absolute;
     left: 30px;
@@ -79,7 +84,7 @@ header {
     font-family: 'Times New Roman', serif;
     font-weight: 400;
     text-decoration: none;
-    margin-right: 40px; /* Adjust spacing between nav items */
+    margin-right: 40px;
 }
 
 .navbar-nav .nav-link.active {
@@ -93,24 +98,23 @@ header {
     margin-left: 10px;
 }
 
-/* Main Section Styles */
 main {
-    padding-top: 0; /* Adjust if header is absolute */
+    padding-top: 0;
 }
 
 .section-border {
     border: 1px black solid;
 }
 
-/* Typography for titles */
+
 h1, h2, h3 {
     font-family: 'Grenze Gotisch', cursive;
     color: black;
 }
 
-/* Specific Section Styles */
+
 .section-intro .display-4 {
-    font-size: 32px; /* Adjusted from 96px for better fit */
+    font-size: 32px;
 }
 
 .section-intro .lead {
@@ -121,15 +125,15 @@ h1, h2, h3 {
 
 .image-placeholder {
     background: #D9D9D9;
-    border: 1px black solid; /* Added a border to distinguish them as blocks */
+    border: 1px black solid;
 }
 
 /* Testimonial Section */
 .testimonial-block {
-    background: #D9D9D9; /* Example background, adjust as needed */
-    border: 1px solid #ccc; /* Add a border to define the block */
+    background: #D9D9D9;
+    border: 1px solid #ccc; 
     padding: 20px;
-    height: 224px; /* Maintain consistent height */
+    height: 224px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,55 +158,35 @@ h1, h2, h3 {
 }
 
 .rotated-line-90deg {
-    width: 1px; /* Line thickness */
-    height: 200px; /* Adjust height as needed */
+    width: 1px;
+    height: 200px;
     background-color: black;
     transform: rotate(90deg);
-    margin: 0 50px; /* Space between elements */
+    margin: 0 50px;
 }
 /* --- HERO BANNER FIXES --- */
 .hero-banner-section {
     position: relative;
     overflow: hidden;
+min-width: 100vw;
 max-width: 100vw;
     border-bottom: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* --- NOUVEAU / MODIFIÉ --- */
-    z-index: 2; /* Assure que cette section est au-dessus de .fond_contact (qui aura un z-index implicite de 0 ou auto) */
+    z-index: 2;
 }
 
-.hero-banner-section img.background-image { /* New class for the background image */
+.hero-banner-section img.background-image {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
     object-fit: cover;
-    z-index: 1; /* Background image at the bottom layer */
+    z-index: 1;
 }
 
-.fanion-container {
-    position: absolute;
-    left: 50%; /* Garde ta nouvelle position pour descendre le fanion */
-    top: 75%;
-    transform: translate(-50%, -50%);
-    /* --- MODIFIÉ --- */
-    z-index: 2; /* Le fanion doit être au-dessus de son background, mais le z-index principal est sur la section parent */
-    width: 80%;
-    max-width: 1134px;
-    height: auto;
-    display: block;
-    overflow: hidden;
-}
-
-.fanion-container img {
-    width: 100%; /* Image will scale with its parent .fanion-container */
-    height: auto;
-    display: block;
-    max-height: 100%;
-    object-fit: contain; /* Ensure the whole image is visible */
-}
 
 /* Footer */
 footer {
@@ -224,174 +208,171 @@ footer ul {
 footer ul li a {
     color: black;
     text-decoration: none;
-    font-size: 18px; /* Adjust as needed */
+    font-size: 18px;
 }
 
     .inscription-page {
-        background-color: white; /* Match body background */
+        background-color: white;
     }
 
     .form-control-custom {
-        background-color: #E5D6AC; /* Background color from Figma */
-        border: 3px solid #A1894B; /* Border color from Figma */
-        border-radius: 0; /* Square corners */
-        height: 68px; /* Height from Figma */
+        background-color: #E5D6AC;
+        border: 3px solid #A1894B;
+        border-radius: 0;
+        height: 68px;
         font-family: 'Inter', sans-serif;
-        font-size: 1.25rem; /* Larger font for input */
+        font-size: 1.25rem;
         color: black;
-        padding: 0.375rem 0.75rem; /* Default Bootstrap padding for inputs */
+        padding: 0.375rem 0.75rem;
     }
 
     .form-control-custom::placeholder {
-        color: #6c757d; /* Adjust placeholder color if needed */
+        color: #6c757d;
         opacity: 0.7;
     }
 
-    /* Override default focus styles if needed */
     .form-control-custom:focus {
-        border-color: #8c733f; /* Darker shade of your border color on focus */
-        box-shadow: 0 0 0 0.25rem rgba(161, 137, 75, 0.25); /* Subtle shadow on focus */
-        background-color: #E5D6AC; /* Keep background on focus */
+        border-color: #8c733f;
+        box-shadow: 0 0 0 0.25rem rgba(161, 137, 75, 0.25);
+        background-color: #E5D6AC;
     }
 
     /* Specific height for textarea */
     textarea.form-control-custom {
-        height: auto; /* Allow textarea to size based on rows */
-        min-height: 200px; /* Adjust as needed */
+        height: auto;
+        min-height: 200px;
     }
 .imgpicto{
     width: 60px;
 }
 .bg-custom-button {
-    background-color: transparent; /* Fond transparent par défaut pour l'effet outline */
-    color: #A1894B; /* Couleur du texte et de la bordure par défaut */
-    border: 3px solid #A1894B; /* Bordure plus épaisse avec ta couleur personnalisée */
-    border-radius: 20px; /* Valeur généreuse pour un effet bien arrondi (ajuste si besoin) */
+    background-color: transparent;
+    color: #A1894B;
+    border: 3px solid #A1894B;
+    border-radius: 20px;
     font-family: 'Times New Roman', serif;
     font-weight: 400;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Ajout de border-color à la transition */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
-    /* Rendre le bouton un peu plus grand */
-    padding: 15px 35px; /* Augmenter le padding vertical et horizontal */
-    font-size: 1.25rem; /* Augmenter la taille de la police */
-    line-height: 1.5; /* Ajuster la hauteur de ligne si nécessaire pour le texte */
-    display: inline-flex; /* Permet un meilleur alignement du contenu si tu utilises flex */
-    align-items: center; /* Centre le texte verticalement */
-    justify-content: center; /* Centre le texte horizontalement */
+    padding: 15px 35px;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bg-custom-button:hover {
-    background-color: #A1894B; /* Fond coloré au survol */
-    color: black; /* Texte noir au survol */
-    border-color: #A1894B; /* Conserver la même couleur de bordure au survol ou la changer si tu veux un effet différent */
+    background-color: #A1894B;
+    color: black;
+    border-color: #A1894B;
 }
 
 
     .bg-custom-button:hover {
-        background-color: #8c733f; /* Slightly darker on hover */
-        color: white; /* Optional: change text color on hover */
+        background-color: #8c733f;
+        color: white;
     }
 
 /* --- Styles pour la page Contact --- */
 .contact-page-wrapper {
-    position: relative; /* Conteneur pour les images de fond */
-    min-height: 100vh; /* S'assure que le wrapper prend au moins toute la hauteur de la vue */
+    position: relative;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Cache le débordement des images */
+    overflow: hidden;
 }
 
 .contact-container {
-    position: relative; /* Pour que le z-index fonctionne */
-    z-index: 10; /* Assure que le formulaire est au-dessus des images */
-    max-width: 868px; /* Correspond à la largeur des blocs Figma */
-    width: 90%; /* Responsive width */
-    margin: 60px auto; /* Centre le conteneur et ajoute de l'espace */
-    padding: 40px; /* Augmenté pour un meilleur espacement interne */
-    background-color: #D9D9D9; /* Ton gris clair */
+    position: relative;
+    z-index: 10;
+    max-width: 868px;
+    width: 90%;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #D9D9D9;
     border: 1px solid black;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
-    text-align: center; /* Centre le contenu à l'intérieur */
-    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .contact-container h1 {
     font-family: 'Grenze Gotisch', cursive;
     color: black;
     margin-bottom: 40px;
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Taille de police responsive pour le H1 */
+    font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.2;
 }
 
 .contact-container form {
     display: flex;
-    flex-direction: column; /* Les éléments du formulaire s'empilent verticalement */
-    gap: 25px; /* Espace entre les champs du formulaire */
-    align-items: center; /* Centre les éléments du formulaire */
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
 }
 
-/* Styles pour les labels qui simulent les textes de Figma */
+/* Styles pour les labels */
 .form-label-contact {
-    display: block; /* Chaque label sur une nouvelle ligne */
-    align-self: flex-start; /* Aligner les labels à gauche */
-    width: 100%; /* Prend toute la largeur disponible pour l'alignement */
-    text-align: left; /* Texte du label aligné à gauche */
+    display: block;
+    align-self: flex-start;
+    width: 100%;
+    text-align: left;
     color: black;
-    font-size: 24px; /* Correspond à la taille de Figma */
-    font-family: 'Inter', sans-serif; /* Police de Figma */
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    margin-bottom: -15px; /* Rapproche le label de l'input */
-    margin-left: 5px; /* Petite indentation pour le label */
+    margin-bottom: -15px;
+    margin-left: 5px;
 }
 
-/* Styles spécifiques pour les inputs et textarea pour correspondre à Figma */
+/* Styles spécifiques pour les inputs et textarea */
 .contact-container input[type="text"],
 .contact-container input[type="email"],
-.contact-container input[type="password"], /* <-- AJOUTE CETTE LIGNE ! */
+.contact-container input[type="password"],
 .contact-container textarea {
-    width: 100%; /* Les champs prennent toute la largeur disponible dans le conteneur */
-    max-width: 868px; /* Aligné sur la largeur des blocs Figma */
-    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
-    /* Réutilisation de ta classe existante pour le reste des styles */
+    width: 100%;
+    max-width: 868px;
+    box-sizing: border-box;
     background-color: #E5D6AC;
     border: 3px solid #A1894B;
     border-radius: 0;
-    height: 78px; /* Hauteur des inputs de Figma */
+    height: 78px;
     font-family: 'Inter', sans-serif;
     font-size: 1.25rem;
     color: black;
     padding: 0.375rem 0.75rem;
 }
 
-/* Styles spécifiques pour les inputs et textarea pour correspondre à Figma */
-.form-control-custom { /* Réutilisation de ta classe existante */
-    background-color: #E5D6AC; /* Background color from Figma */
-    border: 3px solid #A1894B; /* Border color from Figma */
-    border-radius: 0; /* Square corners */
-    height: 68px; /* Hauteur des inputs de Figma */
+/* Styles spécifiques pour les inputs et textarea */
+.form-control-custom {
+    background-color: #E5D6AC;
+    border: 3px solid #A1894B;
+    border-radius: 0;
+    height: 68px;
     font-family: 'Inter', sans-serif;
     color: black;
-     padding: 0.375rem 0.75rem; /* Réajuste le padding si la hauteur fixe change le texte */
+     padding: 0.375rem 0.75rem;
     font-size: 1.25rem;
 }
 
 textarea.form-control-custom {
-    height: 310px; /* Hauteur du textarea de Figma */
-    min-height: 200px; /* Pour la responsivité */
-    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+    height: 310px; 
+    min-height: 200px;
+    resize: vertical;
 }
 
 
-.contact-submit-button { /* Nouvelle classe pour le bouton d'envoi */
-    width: 338px; /* Largeur du bouton de Figma */
-    height: 78px; /* Hauteur du bouton de Figma */
-    padding: 0; /* Retire le padding par défaut car la hauteur est fixe */
-    font-size: 24px; /* Taille de police de Figma */
-    font-family: 'Times New Roman', serif; /* Police de Figma */
+.contact-submit-button {
+    width: 338px;
+    height: 78px;
+    padding: 0;
+    font-size: 24px;
+    font-family: 'Times New Roman', serif;
     font-weight: 400;
-    line-height: 78px; /* Centre le texte verticalement */
-    display: flex; /* Utilise flexbox pour centrer le texte */
+    line-height: 78px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -399,21 +380,21 @@ textarea.form-control-custom {
 /* --- Styles pour les images décoratives de Figma --- */
 .contact-decor-images img {
     position: absolute;
-    opacity: 0.90; /* Opacité donnée par Figma */
-    z-index: 1; /* Assure qu'elles sont derrière le formulaire */
-    display: none; /* Masquées par défaut pour éviter le désordre */
+    opacity: 0.90;
+    z-index: 1;
+    display: none;
 }
 
 /* Spécifiques à chaque image pour leur positionnement */
 .img-rotated-corner {
     top: 0;
     left: 0;
-    transform: rotate(-90deg) translateX(-100%); /* Positionne et pivote dans le coin supérieur gauche */
+    transform: rotate(-90deg) translateX(-100%);
     transform-origin: top left;
-    width: clamp(800px, 100vw, 1942.18px); /* Responsive width */
+    width: clamp(800px, 100vw, 1942.18px);
     height: auto;
-    max-width: none; /* Empêche le max-width de 100% de Bootstrap */
-    display: block; /* Affiche l'image */
+    max-width: none;
+    display: block;
 }
 
 .img-side-top {
@@ -421,7 +402,7 @@ textarea.form-control-custom {
     right: 0;
     width: clamp(400px, 50vw, 1134px);
     height: auto;
-    display: block; /* Affiche l'image */
+    display: block;
 }
 
 .img-side-bottom {
@@ -429,7 +410,7 @@ textarea.form-control-custom {
     right: 0;
     width: clamp(600px, 60vw, 1645px);
     height: auto;
-    display: block; /* Affiche l'image */
+    display: block;
 }
 
 .img-bottom-banner {
@@ -437,7 +418,7 @@ textarea.form-control-custom {
     left: 0;
     width: clamp(800px, 100vw, 1920px);
     height: auto;
-    display: block; /* Affiche l'image */
+    display: block;
 }
 
 .fond_contact {
@@ -532,7 +513,7 @@ textarea.form-control-custom {
 .info-banner {
     position: relative;
     width: 100%;
-    margin-top: 3rem; /* Espacement au-dessus de la bannière */
+    top: 3rem; /* Espacement au-dessus de la bannière */
     margin-bottom: 3rem; /* Espacement en dessous de la bannière */
     height: 60px; /* Hauteur de la zone de la bannière */
     display: flex;
@@ -864,26 +845,130 @@ textarea.form-control-custom {
     padding: 12px 30px; /* Ajuste le padding pour une taille agréable */
     font-size: 1.3rem; /* Taille de police du bouton */
 }
-
-    @media (max-width: 1200px) { /* Adjust fanion size for smaller desktops */
-    /* Remove fixed width for img, let parent width handle it */
-    /* .fanion-container img { width: 900px; height: auto; } */
-    /* Let the max-width of the container handle the scaling */
-    .fanion-container {
-        max-width: 900px; /* Limit max size on larger tablets/small desktops */
-    }
-        .fanion-content h1 { font-size: 18px; }
-
+/* Styles pour le conteneur global du formulaire */
+#reservationForm {
+    max-width: 600px; /* Largeur maximale du formulaire */
+    margin: 60px auto; /* Centre le formulaire horizontalement et ajoute de l'espace vertical */
+    padding: 40px; /* Espacement interne */
+    background-color: #D9D9D9; /* Couleur de fond gris clair */
+    border: 3px solid #A1894B; /* Bordure prononcée avec ta couleur personnalisée */
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2); /* Ombre marquée pour un effet de profondeur */
+    border-radius: 5px; /* Légers coins arrondis pour le formulaire */
+    text-align: left; /* Alignement du texte par défaut */
 }
 
-  @media (max-width: 992px) { /* Adjust fanion size for tablets */
-    /* Remove fixed width for img */
-    /* .fanion-container img { width: 700px; } */
-    .fanion-container {
-        max-width: 700px; /* Limit max size for tablets */
-    }
-    /* Font sizes continue to scale with clamp */
-    /* .fanion-content h1 { font-size: 2rem; } */
+/* Style du titre du formulaire */
+#reservationForm h1 {
+    font-family: 'Grenze Gotisch', cursive; /* Police de tes titres principaux, si disponible */
+    font-size: clamp(2.2rem, 4vw, 3rem); /* Taille de police responsive */
+    color: black; /* Couleur du titre */
+    margin-bottom: 30px; /* Espacement sous le titre */
+    text-align: center; /* Centre le titre */
+}
+
+/* Styles pour les groupes de formulaire (labels et inputs) */
+.form-group {
+    margin-bottom: 20px; /* Espacement entre les groupes de champs */
+}
+
+.form-group label {
+    font-family: 'Inter', sans-serif; /* Police pour les labels, comme tes info-blocks */
+    font-size: 1.1rem; /* Taille de police pour les labels */
+    color: #333; /* Couleur de texte plus foncée pour la lisibilité */
+    margin-bottom: 8px; /* Espacement entre le label et l'input */
+    display: block; /* Assure que le label prend sa propre ligne */
+    font-weight: bold; /* Met les labels en gras */
+}
+
+/* Styles pour les champs de texte (email) */
+.form-control {
+    width: 100%; /* Le champ prend toute la largeur disponible */
+    padding: 12px 15px; /* Padding interne pour le confort de saisie */
+    border: 2px solid #A1894B; /* Bordure de la même couleur que ta marque */
+    border-radius: 5px; /* Coins légèrement arrondis pour l'input */
+    background-color: white; /* Fond blanc pour le champ */
+    font-family: 'Times New Roman', serif; /* Police pour le texte saisi */
+    font-size: 1rem; /* Taille de police pour le texte saisi */
+    color: #333; /* Couleur du texte saisi */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Ombre interne discrète */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition douce pour le focus */
+}
+
+.form-control:focus {
+    border-color: #7a6839; /* Couleur de bordure légèrement plus foncée au focus */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 0.25rem rgba(161, 137, 75, 0.25); /* Ombre pour le focus */
+    outline: none; /* Supprime l'outline par défaut du navigateur */
+}
+
+/* Styles pour les cases radio et leurs labels */
+.form-check {
+    margin-bottom: 10px; /* Espacement entre les options radio */
+    display: flex; /* Utilise flexbox pour aligner la case et le texte */
+    align-items: flex-start; /* Aligne le début du texte avec la case */
+}
+
+.form-check-input[type="radio"] {
+    /* Cache l'input radio par défaut et le remplace par un style personnalisé */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px; /* Taille de la case radio personnalisée */
+    height: 20px;
+    border: 2px solid #A1894B; /* Bordure de la case */
+    border-radius: 50%; /* Forme circulaire */
+    background-color: white; /* Fond blanc */
+    margin-top: 4px; /* Alignement vertical avec le texte */
+    flex-shrink: 0; /* Empêche la case de rétrécir */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.form-check-input[type="radio"]:checked {
+    background-color: #A1894B; /* Couleur de fond quand coché */
+    border-color: #A1894B; /* Bordure de la même couleur */
+    /* Petite ombre pour un effet "enfoncé" */
+    box-shadow: inset 0 0 0 4px white; /* Cercle blanc au centre */
+}
+
+.form-check-input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(161, 137, 75, 0.25); /* Anneau de focus */
+}
+
+.form-check-label {
+    font-family: 'Times New Roman', serif; /* Police pour le texte des options */
+    font-size: 1rem; /* Taille de police pour le texte des options */
+    color: #444; /* Couleur de texte */
+    margin-left: 10px; /* Espacement entre la case et le texte */
+    cursor: pointer;
+}
+
+/* Styles pour le bouton de soumission */
+#submitButton {
+    width: auto; /* Largeur automatique */
+    min-width: 200px; /* Largeur minimale pour le bouton */
+    padding: 12px 25px; /* Padding ajusté pour ta taille */
+    font-size: 1.2rem; /* Taille de police du bouton */
+    font-weight: bold;
+    text-transform: uppercase; /* Texte en majuscules pour le bouton */
+    letter-spacing: 1px; /* Espacement des lettres */
+    display: block; /* Prend toute la largeur si pas de max-width */
+    margin: 40px auto 0; /* Centre le bouton */
+    cursor: pointer;
+}
+
+/* Style spécifique pour le bouton désactivé */
+#submitButton:disabled {
+    background-color: #cccccc; /* Couleur de fond gris clair */
+    color: #666666; /* Couleur de texte gris foncé */
+    border-color: #999999; /* Bordure gris */
+    cursor: not-allowed; /* Curseur "interdit" */
+    box-shadow: none; /* Pas d'ombre */
+    transform: none; /* Pas d'animation au survol */
+    transition: none; /* Pas de transition pour le disabled */
+}
+
+  @media (max-width: 992px) {
 
      .contact-container {
         padding: 30px;
@@ -929,7 +1014,6 @@ textarea.form-control-custom {
     .img-bottom-banner {
         width: clamp(600px, 80vw, 1200px);
     }
-      .fanion-content h1 { font-size: 15px; }
 }
 
   
@@ -958,16 +1042,16 @@ textarea.form-control-custom {
         margin-right: auto;
     }
 
+    .navbar-brand .imgpicto { /* Cibler le logo du navbar-brand */
+    width: 40px; /* Taille par défaut si tu veux */
+    height: 40px; /* Taille par défaut si tu veux */
+    border-radius: 50%; /* Si ce n'est pas déjà fait et que tu veux un logo rond */
+    object-fit: cover;
+}
+
     .hero-banner-section {
         height: auto; /* Let the padding-bottom determine height primarily */ /* Smaller min-height for smaller screens */
     }
-    .fanion-container {
-        width: 90%; /* Allow it to take up more width on smaller screens, but scale */
-        max-width: 500px; /* Limit max size for smaller tablets/large phones */
-        top: 60%; /* Maybe adjust top position slightly for smaller screens */
-    }
-    /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
-    .fanion-content h1 { font-size: 12px; }
  .contact-container {
         margin: 30px 15px;
         padding: 20px;
@@ -1055,6 +1139,13 @@ textarea.form-control-custom {
         height: 140px; /* Ajusté pour mobile */
         margin-bottom: 20px;
     }
+    .pdp { /* Pour l'image de profil de l'utilisateur connecté */
+    width: 40px; /* Taille par défaut */
+    height: 40px; /* Taille par défaut */
+    border-radius: 50%; /* Pour la rendre ronde */
+    object-fit: cover; /* Assure que l'image remplit le cercle */
+    border: 2px solid #A1894B; /* Bordure, comme sur les commentaires */
+}
 
       .gallery-image {
         max-width: 90%; /* Réduit la largeur sur mobile pour laisser un peu d'espace */
@@ -1091,6 +1182,43 @@ textarea.form-control-custom {
         font-size: 1.1rem;
     }
     
+    #reservationForm {
+        margin: 30px 15px; /* Marges réduites sur mobile */
+        padding: 25px; /* Padding interne réduit */
+    }
+
+    #reservationForm h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem); /* Taille de titre ajustée */
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .form-check-input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        margin-top: 3px;
+    }
+
+    .form-check-label {
+        font-size: 0.9rem;
+        margin-left: 8px;
+    }
+
+    #submitButton {
+        min-width: unset; /* Supprime le min-width */
+        width: 100%; /* Prend toute la largeur sur mobile */
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1124,20 +1252,12 @@ textarea.form-control-custom {
     .navbar-toggler {
         margin-left: auto;
     }
-    .fanion-container {
-        width: 95%; /* Even wider on smallest screens to maximize space, but still scales */
-        max-width: 350px; /* Limit max size for phones */
-        top: 35%; /* Adjust top if needed */
-    }
-    /* Clamp will handle font sizes, no need to hardcode specific font-size values here */
-    .fanion-content h1 { font-size: 9px; }
-
         .profile-container {
-        margin: 30px 15px; /* Moins de marge sur les petits écrans */
+        margin: 30px 15px;
         padding: 20px;
     }
     .profile-container h2 {
-        padding-left: 10px; /* Moins d'indentation */
+        padding-left: 10px;
         font-size: clamp(1rem, 3.5vw, 1.5rem);
     }
 
@@ -1155,10 +1275,46 @@ textarea.form-control-custom {
         margin-bottom: -5px;
     }
     .img-side-top, .img-bottom-banner {
-        display: none; /* Masquer toutes les images sur les très petits écrans si elles posent problème */
+        display: none;
     }
 
     .container p{
         margin:0 5%;
+    }
+     .navbar-collapse .d-flex.align-items-md-center {
+        /* Cela cible le conteneur du nom d'utilisateur, photo, et boutons */
+        /* Flexbox pour centrer ses éléments enfants */
+        display: flex;
+        flex-direction: column; /* Empile verticalement */
+        align-items: center; /* Centre horizontalement les éléments empilés */
+        width: 100%; /* Prend toute la largeur disponible dans le menu responsive */
+    }
+
+    /* Ajustement spécifique pour l'image de profil (pdp) */
+    .navbar-collapse .d-flex.align-items-md-center .pdp {
+        width: 60px; /* Taille plus grande sur mobile */
+        height: 60px; /* Taille plus grande sur mobile */
+        margin-bottom: 10px; /* Ajoute un peu d'espace sous l'image de profil */
+        margin-right: 0 !important; /* Annule la marge droite si elle était définie */
+        margin-left: 0 !important; /* Annule la marge gauche si elle était définie */
+    }
+
+    /* Ajustement des autres éléments autour de la photo de profil si nécessaire */
+    .navbar-collapse .navbar-text.fs-5 { /* Nom d'utilisateur */
+        margin-bottom: 10px !important; /* Espace sous le nom */
+        text-align: center; /* Centre le texte du nom */
+    }
+
+    .navbar-collapse .d-flex.flex-column.flex-sm-row { /* Conteneur des boutons Messagerie/Déconnexion */
+        flex-direction: column !important; /* Force l'empilement vertical des boutons */
+        align-items: center; /* Centre les boutons */
+        width: 100%; /* Prend toute la largeur */
+    }
+
+    .navbar-collapse .d-flex.flex-column.flex-sm-row .btn {
+        width: 80%; /* Pour que les boutons ne soient pas trop larges sur mobile */
+        max-width: 200px; /* Largeur maximale pour les boutons */
+        margin-right: 0 !important; /* Enlève les marges horizontales entre boutons sur mobile */
+        margin-bottom: 10px !important; /* Ajoute un espace vertical entre les boutons */
     }
 }

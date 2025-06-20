@@ -7,6 +7,7 @@ function index(){
     $commentaires = getCommentaires();
     $demandes = getMessagesAdmin();
     $commentairesGestion = getCommentairesGestion();
+    $inscrits = getUtilisateursInscrits();
 
     $titre="Voici tous les comptes:"; 
 

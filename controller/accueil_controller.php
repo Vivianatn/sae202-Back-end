@@ -1,11 +1,13 @@
 <?php
 require_once("conf/conf.inc.php");
 require_once("model/accueil_model.php");
+require_once("model/reservation_model.php");
 
 function index(){
 
 $parties = getUtilisateurs();
 $commentaires_verif = commentaireVerifie();
+$nb_inscrits = verif_reservation();
   
 $titre="Voici tous les comptes:";
 

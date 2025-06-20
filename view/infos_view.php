@@ -1,4 +1,5 @@
 <main>
+    <img src="view/img/banniere3v2.png" alt="Bannière d'accueil Entrez dans l'ombre d'un meurtre" class="hero-banner-section background-image">
     <section class="banner-top">
         <div class="banner-content">
             <img src="https://placehold.co/100x100/A1894B/A1894B" alt="Sherlock Holmes et château" class="banner-overlay-img">
@@ -12,11 +13,19 @@
         </div>
     </section>
 
-    <section class="container my-5">
+<section class="container my-5">
+    <h2 class="text-dark text-center mb-4">CALENDRIER</h2> <div class="calendar-responsive">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
-                <div class="content-block calendar-block d-flex justify-content-center align-items-center bg-light">
-                    <h2 class="text-dark">CALENDRIER</h2>
+                <div class="content-block calendar-block bg-light">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=dd65567b478a35d5b3731a4dae779930de4cbced58c409431f6d6dab29f0f71d%40group.calendar.google.com&ctz=Europe%2FParis"
+                                style="border: 0"
+                                width="100%"
+                                height="100%"
+                                frameborder="0"
+                                scrolling="no">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,7 +110,7 @@
     <section class="container my-4">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <button class="btn bg-custom-button px-5 py-3 fs-4">Réserver votre place</button>
+                <a href="/reservation"><button class="bg-custom-button">Réserver votre place</button></a>
             </div>
         </div>
     </section>
@@ -112,32 +121,32 @@
         </div>
     </section>
 
-    <section class="container my-5 py-5">
-        <div class="row justify-content-center g-4 icon-info-section">
-            <div class="col-6 col-md-3 text-center">
-                <div class="icon-block">
-                    <img src="https://placehold.co/100x100/A1894B/A1894B" alt="Icône Groupe" class="img-fluid mb-2">
-                    <p class="icon-label">À partir de 15 ans</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 text-center">
-                <div class="icon-block">
-                    <img src="https://placehold.co/100x100/A1894B/A1894B" alt="Icône Sablier" class="img-fluid mb-2">
-                    <p class="icon-label">Durée : 2h</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 text-center">
-                <div class="icon-block">
-                    <img src="https://placehold.co/100x100/A1894B/A1894B" alt="Icône Poignée de main" class="img-fluid mb-2">
-                    <p class="icon-label">En équipe</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 text-center">
-                <div class="icon-block">
-                    <img src="https://placehold.co/100x100/A1894B/A1894B" alt="Icône T-shirt" class="img-fluid mb-2">
-                    <p class="icon-label">Prévoir des vêtements sombres</p>
-                </div>
+<section class="container my-5 py-5">
+    <div class="row justify-content-center g-4 icon-info-section">
+        <div class="col-6 col-md-3 text-center">
+            <div class="icon-block">
+                <img src="/view/img/picto +joueurs 1.png" alt="Icône Groupe (À partir de 15 ans)" class="img-fluid mb-2">
+                <p class="icon-label">À partir de 15 ans</p>
             </div>
         </div>
-    </section>
+        <div class="col-6 col-md-3 text-center">
+            <div class="icon-block">
+                <img src="/view/img/picto sablier 1.png" alt="Icône Sablier (Durée)" class="img-fluid mb-2">
+                <p class="icon-label">Durée :1h30</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <div class="icon-block">
+                <img src="/view/img/picto mains 1.png" alt="Icône Poignée de main (En équipe)" class="img-fluid mb-2">
+                <p class="icon-label">En équipe</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 text-center">
+            <div class="icon-block">
+                <img src="/view/img/picto tshirt 1.png" alt="Icône T-shirt (Vêtements sombres)" class="img-fluid mb-2">
+                <p class="icon-label">Prévoir des vêtements sombres</p>
+            </div>
+        </div>
+    </div>
+</section>
 </main>
