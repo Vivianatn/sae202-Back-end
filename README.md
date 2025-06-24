@@ -1,6 +1,6 @@
 # SAE 202 Documentation 
 
-Après le clone du dossier avec git clone https://github.com/Vivianatn/_sae202 le renommer en sae202 avec la commande suivante : (sudo) mv /var/www/_sae202 sae202
+Après le clone du dossier avec git clone https://github.com/Vivianatn/sae202-Back-end le renommer en sae202 avec la commande suivante : (sudo) mv /var/www/_sae202 sae202
 
 MMI = Votre mmi24xxx personnel
 
