@@ -9,7 +9,7 @@ MMI = Votre mmi24xxx personnel
 Aller dans /etc/apache2/sites-available sur votre VPS, ensuite tapez la commande (sudo) nano sae202.conf et collez tout ça :
 
 ```apache
-<VirtualHost *:443>
+<VirtualHost *:80>
 
   ServerName MMI.sae202.ovh
   ServerAdmin MMI1@mmi-troyes.fr
