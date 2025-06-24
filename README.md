@@ -55,11 +55,11 @@ DirectoryIndex index.php
 Options -Indexes
 AllowOverride All
 </Directory>
-
+```
 Ensuite faites CTRL+S puis CTRL+X (CMD si vous êtes sur MAC).
 
 Dans le même dossier, faites (sudo) nano admin.conf et coller tout ça :
-
+```apache
 Alias /gestion /var/www/sae202/admin
 
 <Directory /var/www/sae202/admin>
