@@ -86,7 +86,7 @@ Maintenant avec l'URL suivant vous pouvez voir le site hébergé sur vos VPS : h
 Il faut d'abord créer une database pour nos tables du site on l'appellera sae202Base voici les commandes pour créer cette database ainsi que l'utilisateur qui va avec :
 ```sql
 create database sae202Base;
-create user 'sae202user'@'localhost' identified by 'password';
+create user 'sae202User'@'localhost' identified by 'password';
 grant all on sae202Base.* TO 'sae202User'@'localhost';
 ```
 
